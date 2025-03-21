@@ -1,4 +1,5 @@
 using System.IO;
+using System.Threading.Tasks;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using LSL.AbstractConsole.ServiceProvider;
@@ -36,6 +37,39 @@ public class DecorateWithInterceptorTests
             Before invoke of DoSomething
             Something done
             After invoke of DoSomething
+
+            """.ReplaceLineEndings()
+        );
+    }
+
+    [Test]
+    public async Task DecorateWithAsyncInterceptor()
+    {
+        // Arrange
+        var writer = new StringWriter();
+
+        var sp = new ServiceCollection()
+            .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
+            .AddScoped<IMyAsyncService, MyAsyncService>()
+            .AddAbstractConsole(c => c.TextWriter = writer)
+            .DecorateWithAsyncInterceptor<IMyAsyncService, MyAsyncInterceptor>()
+            .BuildServiceProvider();
+
+        var interceptedSut = sp.GetRequiredService<IMyAsyncService>();
+
+        // Act
+        await interceptedSut.RunAsync();
+        
+        // Assert
+        using var assertionScope = new AssertionScope();
+
+        var result = writer.ToString();
+
+        result.Should().Be(
+            """
+            Before invocation
+            My output
+            After Invocation
 
             """.ReplaceLineEndings()
         );

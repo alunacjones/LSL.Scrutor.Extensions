@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using Castle.DynamicProxy;
 using static LSL.Scrutor.Extensions.ProxyGeneratorContainer;
 
@@ -35,6 +36,21 @@ public static class InterceptedDecorators
         return source;
     }
 
+    public static IServiceCollection DecorateWithAsyncInterceptor<TToDecorate, TAsyncInterceptor>(this IServiceCollection source)
+        where TAsyncInterceptor : IAsyncInterceptor
+        where TToDecorate : class
+    {
+        source.Decorate(
+            typeof(TToDecorate), 
+            (service, serviceProvider) => 
+            { 
+                var interceptor = serviceProvider.GetRequiredService<TAsyncInterceptor>();
+                return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(typeof(TToDecorate), service, interceptor);
+            });
+
+        return source;
+    }
+
     /// <summary>
     /// Adds all <c><see cref="IInterceptor"/></c> instances registered in the given assemblies
     /// </summary>
@@ -46,7 +62,7 @@ public static class InterceptedDecorators
         foreach (var assembly in assemblies)
         {
             assembly.GetTypes()
-                .Where(t => !t.IsAbstract && t.IsClass && typeof(IInterceptor).IsAssignableFrom(t))
+                .Where(t => !t.IsAbstract && t.IsClass && (typeof(IInterceptor).IsAssignableFrom(t) || typeof(IAsyncInterceptor).IsAssignableFrom(t)))
                 .ToList()
                 .ForEach(t => source.AddScoped(t));
         }
