@@ -11,7 +11,7 @@ This package providers some extensions to [Scrutor](https://www.nuget.org/packag
 
 ## AddAutoFactory
 
-If you have an factory interface then you can automatically create a proxy that will instantiate the type with this method.
+If you have a factory interface then you can automatically create a proxy that will instantiate the type with this method.
 
 > **NOTE**: The return type can be an interface as long as it is registered to a concrete type
 
@@ -53,7 +53,7 @@ services.AddAutoFactory<IMyFactory>()
 
 > **NOTE**: The returned service from an `AddAutoFactory`'s 
 > interface can
-> have dependencies too as they will be automatically resolved.
+> have other  dependencies too as they will be automatically resolved.
 > Any dependencies must be registered in the `IServiceCollection`
 
 This factory can than be injected into other services to create instances
