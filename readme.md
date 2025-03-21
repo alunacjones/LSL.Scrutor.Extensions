@@ -129,6 +129,7 @@ Then we can easily register a decorator with the provided interceptor as follows
 
 ```csharp
 services.AddInterceptorsFromAssemblyOf<MyInterceptor>()
+    .AddScoped<IThingy, Thingy>()
     .DecorateWithInterceptor<IThingy, MyInterceptor>();
 ```
 
