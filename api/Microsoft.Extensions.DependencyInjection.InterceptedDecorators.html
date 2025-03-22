@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InterceptedDecorators | LSL.Scrutor.Extensions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InterceptedDecorators | LSL.Scrutor.Extensions ">
+      
+      <meta name="description" content="ProxiedDecorators">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/alunacjones/LSL.Scrutor.Extensions/new/feature/more-docs-and-methods/apiSpec/new?filename=Microsoft_Extensions_DependencyInjection_InterceptedDecorators.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.DependencyInjection.InterceptedDecorators%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LSL.Scrutor.Extensions">
+            LSL.Scrutor.Extensions
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators">
+
+
+
+  <h1 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators" class="text-break">
+Class InterceptedDecorators  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions">Extensions</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection">DependencyInjection</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LSL.Scrutor.Extensions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>ProxiedDecorators</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class InterceptedDecorators</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">InterceptedDecorators</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+  AddInterceptorsFromAssemblies(IServiceCollection, IEnumerable&lt;Assembly&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds all <code><span class="xref">Castle.DynamicProxy.IInterceptor</span></code> and all <code><span class="xref">Castle.DynamicProxy.IAsyncInterceptor</span></code> types in the given assemblies</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddInterceptorsFromAssemblies(this IServiceCollection source, IEnumerable&lt;Assembly&gt; assemblies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Reflection_Assembly___" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">
+  AddInterceptorsFromAssemblies(IServiceCollection, params Assembly[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds all <code><span class="xref">Castle.DynamicProxy.IInterceptor</span></code> and all <code><span class="xref">Castle.DynamicProxy.IAsyncInterceptor</span></code> types in the given assemblies</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddInterceptorsFromAssemblies(this IServiceCollection source, params Assembly[] assemblies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>assemblies</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblyOf_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblyOf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+  AddInterceptorsFromAssemblyOf&lt;T&gt;(IServiceCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds all <code><span class="xref">Castle.DynamicProxy.IInterceptor</span></code> and all <code><span class="xref">Castle.DynamicProxy.IAsyncInterceptor</span></code> types
+in the assembly that contains <code class="typeparamref">T</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddInterceptorsFromAssemblyOf&lt;T&gt;(this IServiceCollection source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptor_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptor__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+  DecorateWithAsyncInterceptor&lt;TToDecorate, TAsyncInterceptor&gt;(IServiceCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> with the <code><code class="typeparamref">TAsyncInterceptor</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithAsyncInterceptor&lt;TToDecorate, TAsyncInterceptor&gt;(this IServiceCollection source) where TToDecorate : class where TAsyncInterceptor : IAsyncInterceptor</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+    <dt><code>TAsyncInterceptor</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_LSL_Scrutor_Extensions_AsyncInterceptorConfiguration__" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.AsyncInterceptorConfiguration})">
+  DecorateWithAsyncInterceptors&lt;TToDecorate&gt;(IServiceCollection, Action&lt;AsyncInterceptorConfiguration&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> using the provided <code class="paramref">configurator</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithAsyncInterceptors&lt;TToDecorate&gt;(this IServiceCollection source, Action&lt;AsyncInterceptorConfiguration&gt; configurator) where TToDecorate : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>configurator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html">AsyncInterceptorConfiguration</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptor_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptor__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+  DecorateWithInterceptor&lt;TToDecorate, TInterceptor&gt;(IServiceCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> with <code><code class="typeparamref">TInterceptor</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptor&lt;TToDecorate, TInterceptor&gt;(this IServiceCollection source) where TToDecorate : class where TInterceptor : IInterceptor</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+    <dt><code>TInterceptor</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Collections_Generic_IEnumerable_System_Type__" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+  DecorateWithInterceptors(IServiceCollection, Type, IEnumerable&lt;Type&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorates <code><code class="paramref">serviceTypeToDecorate</code></code> with the given <code><code class="paramref">interceptorTypes</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptors(this IServiceCollection services, Type serviceTypeToDecorate, IEnumerable&lt;Type&gt; interceptorTypes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>serviceTypeToDecorate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>interceptorTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Type___" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type[])">
+  DecorateWithInterceptors(IServiceCollection, Type, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorates <code><code class="paramref">serviceTypeToDecorate</code></code> with the given <code><code class="paramref">interceptorTypes</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptors(this IServiceCollection services, Type serviceTypeToDecorate, params Type[] interceptorTypes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>serviceTypeToDecorate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>interceptorTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_LSL_Scrutor_Extensions_InterceptorConfiguration__" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.InterceptorConfiguration})">
+  DecorateWithInterceptors&lt;TToDecorate&gt;(IServiceCollection, Action&lt;InterceptorConfiguration&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> using the provided <code class="paramref">configurator</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptors&lt;TToDecorate&gt;(this IServiceCollection source, Action&lt;InterceptorConfiguration&gt; configurator) where TToDecorate : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>configurator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LSL.Scrutor.Extensions.InterceptorConfiguration.html">InterceptorConfiguration</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Collections_Generic_IEnumerable_System_Type__" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Type})">
+  DecorateWithInterceptors&lt;TToDecorate&gt;(IServiceCollection, IEnumerable&lt;Type&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> with the provided <code><code class="paramref">interceptorTypes</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptors&lt;TToDecorate&gt;(this IServiceCollection source, IEnumerable&lt;Type&gt; interceptorTypes) where TToDecorate : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>interceptorTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*"></a>
+
+  <h3 id="Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type___" data-uid="Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type[])">
+  DecorateWithInterceptors&lt;TToDecorate&gt;(IServiceCollection, params Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decorate <code><code class="typeparamref">TToDecorate</code></code> with the provided <code><code class="paramref">interceptorTypes</code></code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection DecorateWithInterceptors&lt;TToDecorate&gt;(this IServiceCollection source, params Type[] interceptorTypes) where TToDecorate : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+    <dt><code>interceptorTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TToDecorate</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/src/LSL.Scrutor.Extensions/InterceptedDecorators.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

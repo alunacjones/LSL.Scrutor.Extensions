@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LSL.Scrutor.Extensions | LSL.Scrutor.Extensions </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LSL.Scrutor.Extensions | LSL.Scrutor.Extensions ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/readme.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="LSL.Scrutor.Extensions">
+            LSL.Scrutor.Extensions
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
+<p><a href="https://ci.appveyor.com/project/alunacjones/lsl-scrutor-extensions"><img src="https://img.shields.io/appveyor/ci/alunacjones/lsl-scrutor-extensions.svg" alt="Build status"></a>
+<a href="https://coveralls.io/github/alunacjones/LSL.Scrutor.Extensions"><img src="https://img.shields.io/coverallsCoverage/github/alunacjones/LSL.Scrutor.Extensions" alt="Coveralls branch"></a>
+<a href="https://www.nuget.org/packages/LSL.Scrutor.Extensions/"><img src="https://img.shields.io/nuget/v/LSL.Scrutor.Extensions.svg" alt="NuGet"></a></p>
+<h1 id="lslscrutorextensions">LSL.Scrutor.Extensions</h1>
+<p>This package providers some extensions to <a href="https://www.nuget.org/packages/scrutor/">Scrutor</a> and <a href="https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions/">Microsoft.Extensions.DependencyInjection.Abstractions </a></p>
+<blockquote>
+<p><strong>NOTE</strong>: These extension methods use <a href="https://www.nuget.org/packages/Castle.Core">Castle.Core</a> and therefore the interfaces
+and classes used on each extension method must be public</p>
+</blockquote>
+<h2 id="addautofactory">AddAutoFactory</h2>
+<p>If you have a factory interface then you can automatically create a proxy that will instantiate the type with this method.</p>
+<blockquote>
+<p><strong>NOTE</strong>: The return type can be an interface as long as it is registered to a concrete type</p>
+</blockquote>
+<h3 id="example">Example</h3>
+<p>Assuming you have a definition for a factory interface as below:</p>
+<pre><code class="lang-csharp">public interface IMyFactory
+{
+    MyService Create(string name);
+}
+</code></pre>
+<p>and also a class definition of:</p>
+<pre><code class="lang-csharp">public class MyService
+{
+    private readonly string _name;
+
+    public MyService(string name)
+    {
+        _name = name;
+    }
+
+    public void MakeTheServiceDoSomething()
+    {
+        Console.WriteLine(name);
+    }
+}
+</code></pre>
+<p>Then a factory implementation can be created with the following:</p>
+<pre><code class="lang-csharp">services.AddAutoFactory&lt;IMyFactory&gt;()
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>: The returned service from an <code>AddAutoFactory</code>'s
+interface can
+have other  dependencies too as they will be automatically resolved.
+Any dependencies must be registered in the <code>IServiceCollection</code></p>
+</blockquote>
+<p>This factory can than be injected into other services to create instances
+of <code>MyService</code> using the factory interface.</p>
+<h4 id="using-your-generated-factory">Using your generated factory</h4>
+<pre><code class="lang-csharp">public class MyConsumer
+{
+    private readonly _factory;
+
+    public MyConsumer(IMyFactory factory)
+    {
+        _factory = factory;
+    }
+
+    public void DoSomething()
+    {
+        // Will write 'a-name' to the console as per the earlier
+        // definition of 'MyService'
+        _factory.Create(&quot;a-name&quot;).MakeTheServiceDoSomething();
+    }
+}
+</code></pre>
+<h2 id="decoratewithinterceptor">DecorateWithInterceptor</h2>
+<p>Scrutor provides great <code>Decorator</code> functionality but sometimes a more <a href="https://www.google.com/search?client=firefox-b-d&amp;q=aspect+oriented+programming">Aspect Oreinted Programming</a> paradigm is needed.</p>
+<p><a href="https://www.nuget.org/packages/castle.core/">Castle.Core</a> provides great interception capabilites that this method utilises.</p>
+<h3 id="example-1">Example</h3>
+<p>Given definitions for the following in an assembly:</p>
+<blockquote>
+<p><strong>NOTE</strong>: The following example expectes that an <code>IConsole</code> implementation is registered in the <code>IServiceCollection</code>
+See <a href="https://www.nuget.org/packages/LSL.AbstractConsole">LSL.AbstractConsole</a> for an implementation that can be used with
+an <code>IServiceCollection</code> via the <a href="https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider">LSL.AbstractConsole.ServiceProvider</a>
+package.</p>
+</blockquote>
+<pre><code class="lang-csharp">public interface IThingy
+{
+    void DoSomething();
+}
+
+public class Thingy : IThingy
+{
+    private readonly IConsole _console;
+
+    public Thingy(IConsole console) =&gt; _console = console;
+
+    public void DoSomething() =&gt; _console.WriteLine(&quot;Something done&quot;);
+}
+
+public class MyInterceptor : IInterceptor
+{
+    private readonly IConsole _console;
+
+    public MyInterceptor(IConsole console) =&gt; _console = console;
+
+    public void Intercept(IInvocation invocation)
+    {
+        _console.WriteLine($&quot;Before invoke of {invocation.Method.Name}&quot;);
+        invocation.Proceed();
+        _console.WriteLine($&quot;After invoke of {invocation.Method.Name}&quot;);
+    }
+}
+</code></pre>
+<p>Then we can easily register a decorator with the provided interceptor as follows:</p>
+<pre><code class="lang-csharp">services.AddInterceptorsFromAssemblyOf&lt;MyInterceptor&gt;()
+    .AddScoped&lt;IThingy, Thingy&gt;()
+    .DecorateWithInterceptor&lt;IThingy, MyInterceptor&gt;();
+</code></pre>
+<p>Now we can just inject an <code>IThingy</code> and get <code>MyInterceptor</code> to intercept every call on it.</p>
+<p>If using the aforementioned <code>IConsole</code> implemtation, then a class that consumes <code>IThingy</code>
+as shown below would get intercepted:</p>
+<pre><code class="lang-csharp">public class MyConsumer
+{
+    public MyConsumer(IThingy thing) =&gt; _thingy = thingy;
+
+    public void DoSomethingElse()
+    {
+        // This would result in an `IConsole`
+        // getting output of:
+        // Before invoke of 'DoSomething'
+        // Something done
+        // After invoke of 'DoSomething'
+        _thingy.DoSomething();
+    }
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/alunacjones/LSL.Scrutor.Extensions/blob/feature/more-docs-and-methods/readme.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

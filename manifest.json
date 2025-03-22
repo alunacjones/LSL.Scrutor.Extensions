@@ -1,0 +1,163 @@
+{
+  "source_base_path": "C:/Users/alun/Code/Me/LSL.Scrutor.Extensions/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../readme.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LSL.Scrutor.Extensions.AsyncInterceptorConfiguration",
+      "Summary": "<p sourcefile=\"api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.yml\" sourcestartlinenumber=\"1\">Used to configure async interceptors for a service</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LSL.Scrutor.Extensions.InterceptorConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LSL.Scrutor.Extensions.InterceptorConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LSL.Scrutor.Extensions.InterceptorConfiguration",
+      "Summary": "<p sourcefile=\"api/LSL.Scrutor.Extensions.InterceptorConfiguration.yml\" sourcestartlinenumber=\"1\">Used to configure interceptors for a service</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LSL.Scrutor.Extensions.ProxyGeneratorContainer",
+      "Summary": "<p sourcefile=\"api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.yml\" sourcestartlinenumber=\"1\">A container for the <code>Castle.Core</code> <code><xref href=\"Castle.DynamicProxy.ProxyGenerator\" data-throw-if-not-resolved=\"false\"></xref></code></p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LSL.Scrutor.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LSL.Scrutor.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LSL.Scrutor.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions",
+      "Summary": "<p sourcefile=\"api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.yml\" sourcestartlinenumber=\"1\">AutoFactoryExtensions</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.InterceptedDecorators",
+      "Summary": "<p sourcefile=\"api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.yml\" sourcestartlinenumber=\"1\">ProxiedDecorators</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "other.md",
+      "output": {
+        ".html": {
+          "relative_path": "other.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

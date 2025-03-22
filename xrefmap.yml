@@ -1,0 +1,291 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: LSL.Scrutor.Extensions
+  name: LSL.Scrutor.Extensions
+  href: api/LSL.Scrutor.Extensions.html
+  commentId: N:LSL.Scrutor.Extensions
+  fullName: LSL.Scrutor.Extensions
+  nameWithType: LSL.Scrutor.Extensions
+- uid: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration
+  name: AsyncInterceptorConfiguration
+  href: api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html
+  commentId: T:LSL.Scrutor.Extensions.AsyncInterceptorConfiguration
+  fullName: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration
+  nameWithType: AsyncInterceptorConfiguration
+- uid: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add*
+  name: Add
+  href: api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html#LSL_Scrutor_Extensions_AsyncInterceptorConfiguration_Add_
+  commentId: Overload:LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add
+  isSpec: "True"
+  fullName: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add
+  nameWithType: AsyncInterceptorConfiguration.Add
+- uid: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add``1
+  name: Add<TInterceptor>()
+  href: api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html#LSL_Scrutor_Extensions_AsyncInterceptorConfiguration_Add__1
+  commentId: M:LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add``1
+  name.vb: Add(Of TInterceptor)()
+  fullName: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add<TInterceptor>()
+  fullName.vb: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.Add(Of TInterceptor)()
+  nameWithType: AsyncInterceptorConfiguration.Add<TInterceptor>()
+  nameWithType.vb: AsyncInterceptorConfiguration.Add(Of TInterceptor)()
+- uid: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.op_Implicit(LSL.Scrutor.Extensions.AsyncInterceptorConfiguration)~System.Type[]
+  name: implicit operator Type[](AsyncInterceptorConfiguration)
+  href: api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html#LSL_Scrutor_Extensions_AsyncInterceptorConfiguration_op_Implicit_LSL_Scrutor_Extensions_AsyncInterceptorConfiguration__System_Type__
+  commentId: M:LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.op_Implicit(LSL.Scrutor.Extensions.AsyncInterceptorConfiguration)~System.Type[]
+  name.vb: CType(AsyncInterceptorConfiguration)
+  fullName: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.implicit operator System.Type[](LSL.Scrutor.Extensions.AsyncInterceptorConfiguration)
+  fullName.vb: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.CType(LSL.Scrutor.Extensions.AsyncInterceptorConfiguration)
+  nameWithType: AsyncInterceptorConfiguration.implicit operator Type[](AsyncInterceptorConfiguration)
+  nameWithType.vb: AsyncInterceptorConfiguration.CType(AsyncInterceptorConfiguration)
+- uid: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.op_Implicit*
+  name: implicit operator
+  href: api/LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.html#LSL_Scrutor_Extensions_AsyncInterceptorConfiguration_op_Implicit_
+  commentId: Overload:LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.implicit operator
+  fullName.vb: LSL.Scrutor.Extensions.AsyncInterceptorConfiguration.CType
+  nameWithType: AsyncInterceptorConfiguration.implicit operator
+  nameWithType.vb: AsyncInterceptorConfiguration.CType
+- uid: LSL.Scrutor.Extensions.InterceptorConfiguration
+  name: InterceptorConfiguration
+  href: api/LSL.Scrutor.Extensions.InterceptorConfiguration.html
+  commentId: T:LSL.Scrutor.Extensions.InterceptorConfiguration
+  fullName: LSL.Scrutor.Extensions.InterceptorConfiguration
+  nameWithType: InterceptorConfiguration
+- uid: LSL.Scrutor.Extensions.InterceptorConfiguration.Add*
+  name: Add
+  href: api/LSL.Scrutor.Extensions.InterceptorConfiguration.html#LSL_Scrutor_Extensions_InterceptorConfiguration_Add_
+  commentId: Overload:LSL.Scrutor.Extensions.InterceptorConfiguration.Add
+  isSpec: "True"
+  fullName: LSL.Scrutor.Extensions.InterceptorConfiguration.Add
+  nameWithType: InterceptorConfiguration.Add
+- uid: LSL.Scrutor.Extensions.InterceptorConfiguration.Add``1
+  name: Add<TInterceptor>()
+  href: api/LSL.Scrutor.Extensions.InterceptorConfiguration.html#LSL_Scrutor_Extensions_InterceptorConfiguration_Add__1
+  commentId: M:LSL.Scrutor.Extensions.InterceptorConfiguration.Add``1
+  name.vb: Add(Of TInterceptor)()
+  fullName: LSL.Scrutor.Extensions.InterceptorConfiguration.Add<TInterceptor>()
+  fullName.vb: LSL.Scrutor.Extensions.InterceptorConfiguration.Add(Of TInterceptor)()
+  nameWithType: InterceptorConfiguration.Add<TInterceptor>()
+  nameWithType.vb: InterceptorConfiguration.Add(Of TInterceptor)()
+- uid: LSL.Scrutor.Extensions.InterceptorConfiguration.op_Implicit(LSL.Scrutor.Extensions.InterceptorConfiguration)~System.Type[]
+  name: implicit operator Type[](InterceptorConfiguration)
+  href: api/LSL.Scrutor.Extensions.InterceptorConfiguration.html#LSL_Scrutor_Extensions_InterceptorConfiguration_op_Implicit_LSL_Scrutor_Extensions_InterceptorConfiguration__System_Type__
+  commentId: M:LSL.Scrutor.Extensions.InterceptorConfiguration.op_Implicit(LSL.Scrutor.Extensions.InterceptorConfiguration)~System.Type[]
+  name.vb: CType(InterceptorConfiguration)
+  fullName: LSL.Scrutor.Extensions.InterceptorConfiguration.implicit operator System.Type[](LSL.Scrutor.Extensions.InterceptorConfiguration)
+  fullName.vb: LSL.Scrutor.Extensions.InterceptorConfiguration.CType(LSL.Scrutor.Extensions.InterceptorConfiguration)
+  nameWithType: InterceptorConfiguration.implicit operator Type[](InterceptorConfiguration)
+  nameWithType.vb: InterceptorConfiguration.CType(InterceptorConfiguration)
+- uid: LSL.Scrutor.Extensions.InterceptorConfiguration.op_Implicit*
+  name: implicit operator
+  href: api/LSL.Scrutor.Extensions.InterceptorConfiguration.html#LSL_Scrutor_Extensions_InterceptorConfiguration_op_Implicit_
+  commentId: Overload:LSL.Scrutor.Extensions.InterceptorConfiguration.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: LSL.Scrutor.Extensions.InterceptorConfiguration.implicit operator
+  fullName.vb: LSL.Scrutor.Extensions.InterceptorConfiguration.CType
+  nameWithType: InterceptorConfiguration.implicit operator
+  nameWithType.vb: InterceptorConfiguration.CType
+- uid: LSL.Scrutor.Extensions.ProxyGeneratorContainer
+  name: ProxyGeneratorContainer
+  href: api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.html
+  commentId: T:LSL.Scrutor.Extensions.ProxyGeneratorContainer
+  fullName: LSL.Scrutor.Extensions.ProxyGeneratorContainer
+  nameWithType: ProxyGeneratorContainer
+- uid: LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance
+  name: ProxyGeneratorInstance
+  href: api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.html#LSL_Scrutor_Extensions_ProxyGeneratorContainer_ProxyGeneratorInstance
+  commentId: P:LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance
+  fullName: LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance
+  nameWithType: ProxyGeneratorContainer.ProxyGeneratorInstance
+- uid: LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance*
+  name: ProxyGeneratorInstance
+  href: api/LSL.Scrutor.Extensions.ProxyGeneratorContainer.html#LSL_Scrutor_Extensions_ProxyGeneratorContainer_ProxyGeneratorInstance_
+  commentId: Overload:LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance
+  isSpec: "True"
+  fullName: LSL.Scrutor.Extensions.ProxyGeneratorContainer.ProxyGeneratorInstance
+  nameWithType: ProxyGeneratorContainer.ProxyGeneratorInstance
+- uid: Microsoft.Extensions.DependencyInjection
+  name: Microsoft.Extensions.DependencyInjection
+  href: api/Microsoft.Extensions.DependencyInjection.html
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+- uid: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions
+  name: AutoFactoryExtensions
+  href: api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.html
+  commentId: T:Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions
+  fullName: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions
+  nameWithType: AutoFactoryExtensions
+- uid: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  name: AddAutoFactory(IServiceCollection, Type, ServiceLifetime)
+  href: api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.html#Microsoft_Extensions_DependencyInjection_AutoFactoryExtensions_AddAutoFactory_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_Microsoft_Extensions_DependencyInjection_ServiceLifetime_
+  commentId: M:Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  fullName: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  nameWithType: AutoFactoryExtensions.AddAutoFactory(IServiceCollection, Type, ServiceLifetime)
+- uid: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory*
+  name: AddAutoFactory
+  href: api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.html#Microsoft_Extensions_DependencyInjection_AutoFactoryExtensions_AddAutoFactory_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory
+  nameWithType: AutoFactoryExtensions.AddAutoFactory
+- uid: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  name: AddAutoFactory<TFactory>(IServiceCollection, ServiceLifetime)
+  href: api/Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.html#Microsoft_Extensions_DependencyInjection_AutoFactoryExtensions_AddAutoFactory__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_DependencyInjection_ServiceLifetime_
+  commentId: M:Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  name.vb: AddAutoFactory(Of TFactory)(IServiceCollection, ServiceLifetime)
+  fullName: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory<TFactory>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.AutoFactoryExtensions.AddAutoFactory(Of TFactory)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+  nameWithType: AutoFactoryExtensions.AddAutoFactory<TFactory>(IServiceCollection, ServiceLifetime)
+  nameWithType.vb: AutoFactoryExtensions.AddAutoFactory(Of TFactory)(IServiceCollection, ServiceLifetime)
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators
+  name: InterceptedDecorators
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html
+  commentId: T:Microsoft.Extensions.DependencyInjection.InterceptedDecorators
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators
+  nameWithType: InterceptedDecorators
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  name: AddInterceptorsFromAssemblies(IServiceCollection, IEnumerable<Assembly>)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Collections_Generic_IEnumerable_System_Reflection_Assembly__
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})
+  name.vb: AddInterceptorsFromAssemblies(IServiceCollection, IEnumerable(Of Assembly))
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Collections.Generic.IEnumerable<System.Reflection.Assembly>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Collections.Generic.IEnumerable(Of System.Reflection.Assembly))
+  nameWithType: InterceptedDecorators.AddInterceptorsFromAssemblies(IServiceCollection, IEnumerable<Assembly>)
+  nameWithType.vb: InterceptedDecorators.AddInterceptorsFromAssemblies(IServiceCollection, IEnumerable(Of Assembly))
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])
+  name: AddInterceptorsFromAssemblies(IServiceCollection, params Assembly[])
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Reflection_Assembly___
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])
+  name.vb: AddInterceptorsFromAssemblies(IServiceCollection, ParamArray Assembly())
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection, params System.Reflection.Assembly[])
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies(Microsoft.Extensions.DependencyInjection.IServiceCollection, ParamArray System.Reflection.Assembly())
+  nameWithType: InterceptedDecorators.AddInterceptorsFromAssemblies(IServiceCollection, params Assembly[])
+  nameWithType.vb: InterceptedDecorators.AddInterceptorsFromAssemblies(IServiceCollection, ParamArray Assembly())
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies*
+  name: AddInterceptorsFromAssemblies
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblies_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblies
+  nameWithType: InterceptedDecorators.AddInterceptorsFromAssemblies
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf*
+  name: AddInterceptorsFromAssemblyOf
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblyOf_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf
+  nameWithType: InterceptedDecorators.AddInterceptorsFromAssemblyOf
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddInterceptorsFromAssemblyOf<T>(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_AddInterceptorsFromAssemblyOf__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddInterceptorsFromAssemblyOf(Of T)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf<T>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.AddInterceptorsFromAssemblyOf(Of T)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: InterceptedDecorators.AddInterceptorsFromAssemblyOf<T>(IServiceCollection)
+  nameWithType.vb: InterceptedDecorators.AddInterceptorsFromAssemblyOf(Of T)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor*
+  name: DecorateWithAsyncInterceptor
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptor_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor
+  nameWithType: InterceptedDecorators.DecorateWithAsyncInterceptor
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: DecorateWithAsyncInterceptor<TToDecorate, TAsyncInterceptor>(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptor__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: DecorateWithAsyncInterceptor(Of TToDecorate, TAsyncInterceptor)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor<TToDecorate, TAsyncInterceptor>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptor(Of TToDecorate, TAsyncInterceptor)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: InterceptedDecorators.DecorateWithAsyncInterceptor<TToDecorate, TAsyncInterceptor>(IServiceCollection)
+  nameWithType.vb: InterceptedDecorators.DecorateWithAsyncInterceptor(Of TToDecorate, TAsyncInterceptor)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors*
+  name: DecorateWithAsyncInterceptors
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptors_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors
+  nameWithType: InterceptedDecorators.DecorateWithAsyncInterceptors
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.AsyncInterceptorConfiguration})
+  name: DecorateWithAsyncInterceptors<TToDecorate>(IServiceCollection, Action<AsyncInterceptorConfiguration>)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithAsyncInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_LSL_Scrutor_Extensions_AsyncInterceptorConfiguration__
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.AsyncInterceptorConfiguration})
+  name.vb: DecorateWithAsyncInterceptors(Of TToDecorate)(IServiceCollection, Action(Of AsyncInterceptorConfiguration))
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors<TToDecorate>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<LSL.Scrutor.Extensions.AsyncInterceptorConfiguration>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithAsyncInterceptors(Of TToDecorate)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of LSL.Scrutor.Extensions.AsyncInterceptorConfiguration))
+  nameWithType: InterceptedDecorators.DecorateWithAsyncInterceptors<TToDecorate>(IServiceCollection, Action<AsyncInterceptorConfiguration>)
+  nameWithType.vb: InterceptedDecorators.DecorateWithAsyncInterceptors(Of TToDecorate)(IServiceCollection, Action(Of AsyncInterceptorConfiguration))
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor*
+  name: DecorateWithInterceptor
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptor_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor
+  nameWithType: InterceptedDecorators.DecorateWithInterceptor
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: DecorateWithInterceptor<TToDecorate, TInterceptor>(IServiceCollection)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptor__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: DecorateWithInterceptor(Of TToDecorate, TInterceptor)(IServiceCollection)
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor<TToDecorate, TInterceptor>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptor(Of TToDecorate, TInterceptor)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: InterceptedDecorators.DecorateWithInterceptor<TToDecorate, TInterceptor>(IServiceCollection)
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptor(Of TToDecorate, TInterceptor)(IServiceCollection)
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Collections.Generic.IEnumerable{System.Type})
+  name: DecorateWithInterceptors(IServiceCollection, Type, IEnumerable<Type>)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Collections_Generic_IEnumerable_System_Type__
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Collections.Generic.IEnumerable{System.Type})
+  name.vb: DecorateWithInterceptors(IServiceCollection, Type, IEnumerable(Of Type))
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, System.Collections.Generic.IEnumerable<System.Type>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, System.Collections.Generic.IEnumerable(Of System.Type))
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors(IServiceCollection, Type, IEnumerable<Type>)
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptors(IServiceCollection, Type, IEnumerable(Of Type))
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type[])
+  name: DecorateWithInterceptors(IServiceCollection, Type, params Type[])
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_System_Type___
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type[])
+  name.vb: DecorateWithInterceptors(IServiceCollection, Type, ParamArray Type())
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, params System.Type[])
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, ParamArray System.Type())
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors(IServiceCollection, Type, params Type[])
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptors(IServiceCollection, Type, ParamArray Type())
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors*
+  name: DecorateWithInterceptors
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors
+  isSpec: "True"
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.InterceptorConfiguration})
+  name: DecorateWithInterceptors<TToDecorate>(IServiceCollection, Action<InterceptorConfiguration>)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_LSL_Scrutor_Extensions_InterceptorConfiguration__
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{LSL.Scrutor.Extensions.InterceptorConfiguration})
+  name.vb: DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, Action(Of InterceptorConfiguration))
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<LSL.Scrutor.Extensions.InterceptorConfiguration>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of LSL.Scrutor.Extensions.InterceptorConfiguration))
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(IServiceCollection, Action<InterceptorConfiguration>)
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, Action(Of InterceptorConfiguration))
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Type})
+  name: DecorateWithInterceptors<TToDecorate>(IServiceCollection, IEnumerable<Type>)
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Collections_Generic_IEnumerable_System_Type__
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Collections.Generic.IEnumerable{System.Type})
+  name.vb: DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, IEnumerable(Of Type))
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Collections.Generic.IEnumerable<System.Type>)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Collections.Generic.IEnumerable(Of System.Type))
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(IServiceCollection, IEnumerable<Type>)
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, IEnumerable(Of Type))
+- uid: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type[])
+  name: DecorateWithInterceptors<TToDecorate>(IServiceCollection, params Type[])
+  href: api/Microsoft.Extensions.DependencyInjection.InterceptedDecorators.html#Microsoft_Extensions_DependencyInjection_InterceptedDecorators_DecorateWithInterceptors__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type___
+  commentId: M:Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type[])
+  name.vb: DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, ParamArray Type())
+  fullName: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(Microsoft.Extensions.DependencyInjection.IServiceCollection, params System.Type[])
+  fullName.vb: Microsoft.Extensions.DependencyInjection.InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(Microsoft.Extensions.DependencyInjection.IServiceCollection, ParamArray System.Type())
+  nameWithType: InterceptedDecorators.DecorateWithInterceptors<TToDecorate>(IServiceCollection, params Type[])
+  nameWithType.vb: InterceptedDecorators.DecorateWithInterceptors(Of TToDecorate)(IServiceCollection, ParamArray Type())
