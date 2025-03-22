@@ -4,7 +4,7 @@
     {
       "src": [
         {
-          "src": "./src",
+          "src": "../src",
           "files": [
             "**/*.csproj"
           ]
@@ -20,10 +20,12 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**",
-          "appveyor.yml",
-          "readme.md"
+          "_site/**"
         ]
+      },
+      {
+        "src": "..",
+        "files": "readme.md"
       }
     ],
     "resource": [
@@ -39,8 +41,8 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "",
-      "_appTitle": "",
+      "_appName": "LSL.Scrutor.Extensions",
+      "_appTitle": "LSL.Scrutor.Extensions",
       "_enableSearch": true,
       "pdf": false
     }

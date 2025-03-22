@@ -1,3 +1,6 @@
+---
+outputFileName: index.html
+---
 [![Build status](https://img.shields.io/appveyor/ci/alunacjones/lsl-scrutor-extensions.svg)](https://ci.appveyor.com/project/alunacjones/lsl-scrutor-extensions)
 [![Coveralls branch](https://img.shields.io/coverallsCoverage/github/alunacjones/LSL.Scrutor.Extensions)](https://coveralls.io/github/alunacjones/LSL.Scrutor.Extensions)
 [![NuGet](https://img.shields.io/nuget/v/LSL.Scrutor.Extensions.svg)](https://www.nuget.org/packages/LSL.Scrutor.Extensions/)

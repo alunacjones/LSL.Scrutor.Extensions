@@ -18,9 +18,12 @@ public static class AutoFactoryExtensions
     /// Adds a factory implementation for <c><typeparamref name="TFactory"/></c>
     /// </summary>
     /// <param name="services">The service collection to add to</param>
-    /// <param name="lifetime"></param>
+    /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <typeparam name="TFactory">The interface type of the factory</typeparam>
     /// <returns></returns>
+    /// <example lang="csharp">
+    /// try this
+    /// </example>
     public static IServiceCollection AddAutoFactory<TFactory>(
         this IServiceCollection services,
         ServiceLifetime lifetime = ServiceLifetime.Singleton)
@@ -32,7 +35,7 @@ public static class AutoFactoryExtensions
     /// </summary>
     /// <param name="services">The service collection to add to</param>
     /// <param name="factoryInterfaceType">The interface type of the factory</param>
-    /// <param name="lifetime"></param>
+    /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <returns></returns>
     public static IServiceCollection AddAutoFactory(
         this IServiceCollection services,
