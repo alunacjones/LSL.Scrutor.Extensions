@@ -16,3 +16,20 @@ internal class MyInterceptor : IInterceptor
         _console.WriteLine($"After invoke of {invocation.Method.Name}");
     }
 }
+
+internal class MyOtherInterceptor : IInterceptor
+{
+    private readonly IConsole _console;
+
+    public MyOtherInterceptor(IConsole console)
+    {
+        _console = console;
+    }
+
+    public void Intercept(IInvocation invocation)
+    {
+        _console.WriteLine("Before invoke (other)");
+        invocation.Proceed();
+        _console.WriteLine("After invoke (other)");
+    }
+}

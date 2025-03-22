@@ -26,6 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LSL.Scrutor.Extensions\LSL.Scrutor.Extensions.csproj" />
+    <ProjectReference Include="..\..\src\LSL.Scrutor.Extensions\LSL.Scrutor.Extensions.csproj" />
   </ItemGroup>
 </Project>
