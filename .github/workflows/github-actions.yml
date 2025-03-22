@@ -26,7 +26,7 @@ jobs:
       - name: Build the solution
         run: dotnet build --configuration Release --no-restore
       - name: Pack the NuGet package
-        run: dotnet pack --configuration Release --no-build --output ./nupkg
+        run: dotnet pack --configuration Release --no-build --output ./nupkg --version-sffix ${{ env.version }}
       - name: Publish NuGet package
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
         env:
