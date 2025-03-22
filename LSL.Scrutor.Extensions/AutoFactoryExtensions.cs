@@ -15,38 +15,46 @@ namespace Microsoft.Extensions.DependencyInjection;
 public static class AutoFactoryExtensions
 {
     /// <summary>
-    /// Automatically adds a factory for the given interface
+    /// Adds a factory implementation for <c><typeparamref name="TFactory"/></c>
     /// </summary>
-    /// <param name="services"></param>
-    /// <param name="concreteType"></param>
-    /// <typeparam name="TFactory"></typeparam>
+    /// <param name="services">The service collection to add to</param>
+    /// <param name="lifetime"></param>
+    /// <typeparam name="TFactory">The interface type of the factory</typeparam>
     /// <returns></returns>
-    public static IServiceCollection AddAutoFactory<TFactory>(this IServiceCollection services, Type concreteType = null)
-        where TFactory : class
+    public static IServiceCollection AddAutoFactory<TFactory>(
+        this IServiceCollection services,
+        ServiceLifetime lifetime = ServiceLifetime.Singleton)
+        where TFactory : class => 
+        AddAutoFactory(services, typeof(TFactory), lifetime);
+
+    /// <summary>
+    /// Adds a factory implementation for <c><paramref name="factoryInterfaceType"/></c>
+    /// </summary>
+    /// <param name="services">The service collection to add to</param>
+    /// <param name="factoryInterfaceType">The interface type of the factory</param>
+    /// <param name="lifetime"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddAutoFactory(
+        this IServiceCollection services,
+        Type factoryInterfaceType,
+        ServiceLifetime lifetime = ServiceLifetime.Singleton)
     {
-        services.AddSingleton(sp => CreateFactory<TFactory>(sp, concreteType));
+        services.Add(new(factoryInterfaceType, sp => CreateFactory(sp, factoryInterfaceType), lifetime));
         return services;
     }
 
-    private static TFactory CreateFactory<TFactory>(IServiceProvider serviceProvider, Type concreteType = null)
-        where TFactory : class
-    {
-        return ProxyGeneratorContainer.ProxyGeneratorInstance.CreateInterfaceProxyWithoutTarget<TFactory>(
-            new FactoryInterceptor(serviceProvider, concreteType));
-    }
+    private static object CreateFactory(IServiceProvider serviceProvider, Type factoryInterfaceType) => 
+        ProxyGeneratorContainer.ProxyGeneratorInstance.CreateInterfaceProxyWithoutTarget(
+            factoryInterfaceType,
+            new FactoryInterceptor(serviceProvider)
+        );
 
     private class FactoryInterceptor : IInterceptor
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly Type _concreteType;
-        private readonly ConcurrentDictionary<MethodInfo, ObjectFactory> _factories;
+        private readonly ConcurrentDictionary<MethodInfo, ObjectFactory> _factories = new();
 
-        public FactoryInterceptor(IServiceProvider serviceProvider, Type concreteType)
-        {
-            _serviceProvider = serviceProvider;
-            _concreteType = concreteType;
-            _factories = new ConcurrentDictionary<MethodInfo, ObjectFactory>();
-        }
+        internal FactoryInterceptor(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
 
         public void Intercept(IInvocation invocation)
         {
@@ -54,11 +62,9 @@ public static class AutoFactoryExtensions
             invocation.ReturnValue = factory(_serviceProvider, invocation.Arguments);
         }
 
-        private ObjectFactory CreateFactory(MethodInfo method)
-        {
-            return ActivatorUtilities.CreateFactory(
-                _concreteType ?? method.ReturnType,
+        private ObjectFactory CreateFactory(MethodInfo method) => 
+            ActivatorUtilities.CreateFactory(
+                method.ReturnType,
                 [.. method.GetParameters().Select(p => p.ParameterType)]);
-        }
     }    
 }

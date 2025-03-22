@@ -2,42 +2,7 @@ using System.Threading.Tasks;
 using Castle.DynamicProxy;
 using LSL.AbstractConsole;
 
-namespace LSL.Scrutor.Extensions.Tests;
-
-public class MyService
-{
-    private readonly AnotherDependency _other;
-    private readonly string _name;
-    
-    public MyService(string name, AnotherDependency other)
-    {
-        _name = name;
-        _other = other;
-    }
-
-    public string Name => _other.FormatName(_name);
-}
-
-public interface IMyAsyncService
-{
-    Task RunAsync();
-}
-
-public class MyAsyncService : IMyAsyncService
-{
-    private readonly IConsole _console;
-
-    public MyAsyncService(IConsole console)
-    {
-        _console = console;
-    }
-
-    public async Task RunAsync()
-    {
-        await Task.Delay(1000);
-        _console.WriteLine("My output");
-    }
-}
+namespace LSL.Scrutor.Extensions.Tests.HelperClasses;
 
 public class MyAsyncInterceptor : IAsyncInterceptor
 {

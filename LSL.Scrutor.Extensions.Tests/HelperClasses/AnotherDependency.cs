@@ -1,4 +1,4 @@
-namespace LSL.Scrutor.Extensions.Tests;
+namespace LSL.Scrutor.Extensions.Tests.HelperClasses;
 
 public class AnotherDependency
 {
