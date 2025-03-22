@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: install gh-pages
-        run: npm install -g gh-pages
-      - name: Deploy site
-        run: gh-pages -d docs/_site
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Publish docs site
+        run: npm run docs
