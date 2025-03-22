@@ -37,6 +37,8 @@
     <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet tool restore" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet docfx docs/docfx.json" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.email &quot;ci@appveyor.com&quot;" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.name &quot;Your Name&quot;" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm run docs" />
   </Target>
 
