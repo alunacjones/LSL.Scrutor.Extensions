@@ -1,9 +1,8 @@
 name: Create documentation site
-on: # update file
+on:
   push:
     branches:
       - master
-
 permissions:
   contents: write
   pages: write
@@ -18,6 +17,16 @@ jobs:
           dotnet-version: '8.x'
       - name: Install tools
         run: dotnet tool restore
+      - name: Restore dependencies
+        run: dotnet Restore
+      - name: Build the solution
+        run: dotnet build --configuration Release --no-restore
+      - name: Pack the NuGet package
+        run: dotnet pack --configuration Release --no-build --output ./nupkg
+      - name: Publish NuGet package
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}        
       - name: Generate Site
         run: dotnet docfx docs/docfx.json
       - name: Upload static files as artifact
@@ -31,9 +40,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}    
     needs: build
-    permissions:
-      pages: write
-      id-token: write    
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
