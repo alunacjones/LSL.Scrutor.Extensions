@@ -26,7 +26,8 @@ jobs:
       - name: Publish NuGet package
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}        
+          # chsange
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       - name: Generate Site
         run: dotnet docfx docs/docfx.json
       - name: Upload static files as artifact
