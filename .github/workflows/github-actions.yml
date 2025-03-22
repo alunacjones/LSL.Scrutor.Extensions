@@ -21,4 +21,4 @@ jobs:
       - name: install gh-pages
         run: npm install -g gh-pages
       - name: Deploy site
-        run: gh-pages -d docs/_sites
+        run: gh-pages -d docs/_site
