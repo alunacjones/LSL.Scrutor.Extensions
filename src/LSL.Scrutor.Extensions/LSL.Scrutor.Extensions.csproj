@@ -37,9 +37,9 @@
     <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet tool restore" />
     <Exec WorkingDirectory="../.." Command="dotnet docfx ./docs/docfx.json" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
-    <Exec Command="git remote add gh-pages https://$(GITHUB_TOKEN)@github.com/alunacjones/lsl-scrutor-extensions"/>
-    <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.email &quot;als_uk@yahoo.com&quot;" />
-    <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.name &quot;alunacjones&quot;" />
+    <Exec Command="git remote add gh-pages https://alunacjones:$(GITHUB_TOKEN)@github.com/alunacjones/lsl-scrutor-extensions"/>
+    <!-- <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.email &quot;als_uk@yahoo.com&quot;" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="git config user.name &quot;alunacjones&quot;" /> -->
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm run docs" />
   </Target>
 
