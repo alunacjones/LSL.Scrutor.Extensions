@@ -15,22 +15,10 @@ jobs:
         run: dotnet tool restore
       - name: Generate Site
         run: dotnet docfx docs/docfx.json
-      - name: Upload static files as artifact
-        id: deployment
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/setup-node@v4
         with:
-          path: docs/_site/
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}    
-    needs: build
-    permissions:
-      pages: write
-      id-token: write    
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-      
+          node-version: 20
+      - name: install gh-pages
+        run: npm install -g gh-pages
+      - name: Deploy site
+        run: gh-pages -d docs/_sites
