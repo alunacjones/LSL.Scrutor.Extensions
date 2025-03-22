@@ -18,7 +18,7 @@ jobs:
       - name: Install tools
         run: dotnet tool restore
       - name: Restore dependencies
-        run: dotnet Restore
+        run: dotnet restore
       - name: Build the solution
         run: dotnet build --configuration Release --no-restore
       - name: Pack the NuGet package
