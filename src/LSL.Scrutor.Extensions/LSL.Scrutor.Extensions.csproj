@@ -33,16 +33,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <Target Name="Docs">
-    <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet tool restore" />
-    <Exec WorkingDirectory="../.." Command="dotnet docfx ./docs/docfx.json" />
-    <Exec WorkingDirectory="../.." Command="npm install" />
-    <Exec Command="git remote add gh-pages https://alunacjones:$(GITHUB_TOKEN)@github.com/alunacjones/lsl-scrutor-extensions"/>
-    <Exec WorkingDirectory="$(SolutionDir)" Command="git config --global user.email &quot;als_uk@yahoo.com&quot;" />
-    <Exec WorkingDirectory="$(SolutionDir)" Command="git config --global user.name &quot;alunacjones&quot;" />
-    <Exec WorkingDirectory="../.." Command="npm run docs" />
-  </Target>
-
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="true" PackagePath=""/>
   </ItemGroup>   
