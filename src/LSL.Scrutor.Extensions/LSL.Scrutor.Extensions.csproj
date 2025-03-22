@@ -33,6 +33,13 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <Target Name="Docs" BeforeTargets="Pack">
+    <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet tool restore" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet docfx docs/docfx.json" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
+    <Exec WorkingDirectory="$(SolutionDir)" Command="npm run docs" />
+  </Target>
+
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="true" PackagePath=""/>
   </ItemGroup>   
