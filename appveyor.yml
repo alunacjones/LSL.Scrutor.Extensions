@@ -29,7 +29,9 @@ build_script:
 - cmd: >-
     dotnet build -c Release
 
-    dotnet pack -c Release
+    dotnet pack -c Release --no-build --no-restore
+
+    dotnet msbuild .\src\LSL.Scrutor.Extensions\ -t:Docs -p:GITHUB_TOKEN=%MY_GITHUB_TOKEN%
 test_script:
 - cmd: dotnet test -c Release --no-build --no-restore --test-adapter-path:. --logger:Appveyor /p:CollectCoverage=true /p:CoverletOutputFormat="opencover" /p:CoverletOutput=../lcov
 - cmd: dotnet csmacnz.Coveralls --opencover -i .\lcov.opencover.xml --useRelativePaths
@@ -40,6 +42,9 @@ deploy:
   on:
     branch: master
   api_key: $(MY_NUGET_API_KEY)
+- provider: GitHub
+  on:
+    branch: master
 skip_commits:
   files:
     - '**/*.md'     
