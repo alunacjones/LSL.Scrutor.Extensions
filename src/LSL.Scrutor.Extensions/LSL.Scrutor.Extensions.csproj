@@ -34,7 +34,6 @@
   </PropertyGroup>
 
   <Target Name="Docs">
-    <Message Text="$(GITHUB_TOKEN) als" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="dotnet tool restore" />
     <Exec WorkingDirectory="../.." Command="dotnet docfx ./docs/docfx.json" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
