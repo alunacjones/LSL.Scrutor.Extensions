@@ -7,6 +7,8 @@ outputFileName: index.html
 
 # LSL.Scrutor.Extensions
 
+More documentation can be found [here](https://alunacjones.github.io/LSL.Scrutor.Extensions/)
+
 This package providers some extensions to [Scrutor](https://www.nuget.org/packages/scrutor/) and [Microsoft.Extensions.DependencyInjection.Abstractions ](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions/)
 
 > **NOTE**: These extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
