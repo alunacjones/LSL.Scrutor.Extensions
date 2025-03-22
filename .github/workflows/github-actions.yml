@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 20
       - name: Install Node dependencies
+        working-directory: build
         run: npm ci
       - name: Publish docs site
+        working-directory: build
         run: npm run docs
