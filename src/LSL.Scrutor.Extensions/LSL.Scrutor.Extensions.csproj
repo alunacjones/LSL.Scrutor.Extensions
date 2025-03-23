@@ -33,6 +33,21 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <Target Name="CopyReadmeAndAddFrontMatter" BeforeTargets="Build">
+    <PropertyGroup>
+      <ReadmeFrontMatter>
+---
+outputFileName: index.html
+---      
+      </ReadmeFrontMatter>
+      <ReadmeContent>$([System.IO.File]::ReadAllText('$(SolutionDir)readme.md').TrimEnd())</ReadmeContent>
+    </PropertyGroup>
+
+    <WriteLinesToFile File="$(SolutionDir)docs/readme.md" Overwrite="true" Lines="$(ReadmeFrontMatter)"/>
+    <WriteLinesToFile File="$(SolutionDir)docs/readme.md" Overwrite="false" Lines="$(ReadmeContent)"/>
+  </Target>
+
+
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="true" PackagePath=""/>
   </ItemGroup>   
