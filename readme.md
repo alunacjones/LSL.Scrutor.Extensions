@@ -15,8 +15,6 @@ This package providers some extensions to [Scrutor](https://www.nuget.org/packag
 
 If you have a factory interface then you can automatically create a proxy that will instantiate the type with this method.
 
-> **NOTE**: The return type can be an interface as long as it is registered to a concrete type
-
 ### Example
 
 Assuming you have a definition for a factory interface as below:
@@ -24,14 +22,14 @@ Assuming you have a definition for a factory interface as below:
 ```csharp
 public interface IMyFactory
 {
-    MyService Create(string name);
+    IMyService Create(string name);
 }
 ```
 
 and also a class definition of:
 
 ```csharp
-public class MyService
+public class MyService : IMy
 {
     private readonly string _name;
 

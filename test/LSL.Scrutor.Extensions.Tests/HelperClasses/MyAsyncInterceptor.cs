@@ -20,24 +20,23 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
     private async Task InternalInterceptAsynchronous(IInvocation invocation)
     {
-        // Step 1. Do something prior to invocation.
-
         _console.WriteLine("Before invocation");
         invocation.Proceed();
         var task = (Task)invocation.ReturnValue;
         await task;
 
         _console.WriteLine("After Invocation");
-        // Step 2. Do something after invocation.
     }
 
     public void InterceptAsynchronous<TResult>(IInvocation invocation)
     {
+        // No need to implement as we only have one method with a Task return type
         throw new System.NotImplementedException();
     }
 
     public void InterceptSynchronous(IInvocation invocation)
     {
+        // No need to implement as we only have one method with a Task return type
         throw new System.NotImplementedException();
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,7 @@ public static class AutoFactoryExtensions
     /// Adds a factory implementation for <c><typeparamref name="TFactory"/></c>
     /// </summary>
     /// <param name="services">The service collection to add to</param>
+    /// <param name="configurator">An optional configurator for configuring the auto factory further</param>
     /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <typeparam name="TFactory">The interface type of the factory</typeparam>
     /// <returns></returns>
@@ -26,38 +28,49 @@ public static class AutoFactoryExtensions
     /// </example>
     public static IServiceCollection AddAutoFactory<TFactory>(
         this IServiceCollection services,
+        Action<AutoFactoryConfiguration> configurator = null,
         ServiceLifetime lifetime = ServiceLifetime.Singleton)
         where TFactory : class => 
-        AddAutoFactory(services, typeof(TFactory), lifetime);
+        AddAutoFactory(services, typeof(TFactory), configurator, lifetime);
 
     /// <summary>
     /// Adds a factory implementation for <c><paramref name="factoryInterfaceType"/></c>
     /// </summary>
     /// <param name="services">The service collection to add to</param>
     /// <param name="factoryInterfaceType">The interface type of the factory</param>
+    /// <param name="configurator">An optional configurator for configuring the auto factory further</param>
     /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <returns></returns>
     public static IServiceCollection AddAutoFactory(
         this IServiceCollection services,
         Type factoryInterfaceType,
+        Action<AutoFactoryConfiguration> configurator = null,
         ServiceLifetime lifetime = ServiceLifetime.Singleton)
     {
-        services.Add(new(factoryInterfaceType, sp => CreateFactory(sp, factoryInterfaceType), lifetime));
+        var configuration = new AutoFactoryConfiguration();
+        configurator?.Invoke(configuration);
+
+        services.Add(new(factoryInterfaceType, sp => CreateFactory(sp, factoryInterfaceType, configuration), lifetime));
         return services;
     }
 
-    private static object CreateFactory(IServiceProvider serviceProvider, Type factoryInterfaceType) => 
+    private static object CreateFactory(IServiceProvider serviceProvider, Type factoryInterfaceType, AutoFactoryConfiguration autoFactoryConfiguration) => 
         ProxyGeneratorContainer.ProxyGeneratorInstance.CreateInterfaceProxyWithoutTarget(
             factoryInterfaceType,
-            new FactoryInterceptor(serviceProvider)
+            new FactoryInterceptor(serviceProvider, autoFactoryConfiguration)
         );
 
     private class FactoryInterceptor : IInterceptor
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly AutoFactoryConfiguration _autoFactoryConfiguration;
         private readonly ConcurrentDictionary<MethodInfo, ObjectFactory> _factories = new();
 
-        internal FactoryInterceptor(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
+        internal FactoryInterceptor(IServiceProvider serviceProvider, AutoFactoryConfiguration autoFactoryConfiguration)
+        {
+            _serviceProvider = serviceProvider;
+            _autoFactoryConfiguration = autoFactoryConfiguration;
+        }
 
         public void Intercept(IInvocation invocation)
         {
@@ -67,7 +80,12 @@ public static class AutoFactoryExtensions
 
         private ObjectFactory CreateFactory(MethodInfo method) => 
             ActivatorUtilities.CreateFactory(
-                method.ReturnType,
+                ResolveConcreteType(method.ReturnType),
                 [.. method.GetParameters().Select(p => p.ParameterType)]);
+
+        private Type ResolveConcreteType(Type returnType) => 
+            _autoFactoryConfiguration.TypeMappings.TryGetValue(returnType, out var mapping) 
+                ? mapping 
+                : returnType;
     }    
 }

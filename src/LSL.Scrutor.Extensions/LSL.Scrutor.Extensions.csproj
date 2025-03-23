@@ -40,11 +40,11 @@
 outputFileName: index.html
 ---      
       </ReadmeFrontMatter>
-      <ReadmeContent>$([System.IO.File]::ReadAllText('$(SolutionDir)readme.md').TrimEnd())</ReadmeContent>
+      <ReadmeContent>$([System.IO.File]::ReadAllText('../../readme.md').TrimEnd())</ReadmeContent>
     </PropertyGroup>
 
-    <WriteLinesToFile File="$(SolutionDir)docs/readme.md" Overwrite="true" Lines="$(ReadmeFrontMatter)"/>
-    <WriteLinesToFile File="$(SolutionDir)docs/readme.md" Overwrite="false" Lines="$(ReadmeContent)"/>
+    <WriteLinesToFile File="../../docs/readme.md" Overwrite="true" Lines="$(ReadmeFrontMatter)"/>
+    <WriteLinesToFile File="../../docs/readme.md" Overwrite="false" Lines="$(ReadmeContent)"/>
   </Target>
 
 

@@ -20,13 +20,13 @@ public class DecorateWithInterceptorTests
 
         var sp = new ServiceCollection()
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
-            .AddScoped<IThingy, Thingy>()
+            .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
-            .DecorateWithInterceptors(typeof(IThingy), typeof(object))
+            .DecorateWithInterceptors(typeof(ISyncServiceToDecorate), typeof(object))
             .BuildServiceProvider();
 
         // Act & Assert
-        new Action(() => sp.GetRequiredService<IThingy>()).Should().Throw<ArgumentException>();
+        new Action(() => sp.GetRequiredService<ISyncServiceToDecorate>()).Should().Throw<ArgumentException>();
     }
 
     [Test]
@@ -37,13 +37,13 @@ public class DecorateWithInterceptorTests
 
         var sp = new ServiceCollection()
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
-            .AddScoped<IThingy, Thingy>()
+            .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
-            .DecorateWithInterceptor<IThingy, MyInterceptor>()
-            .DecorateWithInterceptor<IThingy, MyOtherInterceptor>()
+            .DecorateWithInterceptor<ISyncServiceToDecorate, MyInterceptor>()
+            .DecorateWithInterceptor<ISyncServiceToDecorate, MyOtherInterceptor>()
             .BuildServiceProvider();
 
-        var interceptedSut = sp.GetRequiredService<IThingy>();
+        var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();
 
         // Act
         interceptedSut.DoSomething();
@@ -73,12 +73,12 @@ public class DecorateWithInterceptorTests
 
         var sp = new ServiceCollection()
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
-            .AddScoped<IThingy, Thingy>()
+            .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
-            .DecorateWithInterceptors<IThingy>(new[] { typeof(MyInterceptor), typeof(MyOtherInterceptor) }.AsEnumerable())
+            .DecorateWithInterceptors<ISyncServiceToDecorate>(new[] { typeof(MyInterceptor), typeof(MyOtherInterceptor) }.AsEnumerable())
             .BuildServiceProvider();
 
-        var interceptedSut = sp.GetRequiredService<IThingy>();
+        var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();
 
         // Act
         interceptedSut.DoSomething();
@@ -108,14 +108,14 @@ public class DecorateWithInterceptorTests
 
         var sp = new ServiceCollection()
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
-            .AddScoped<IThingy, Thingy>()
+            .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
-            .DecorateWithInterceptors<IThingy>(c => c
+            .DecorateWithInterceptors<ISyncServiceToDecorate>(c => c
                 .Add<MyInterceptor>()
                 .Add<MyOtherInterceptor>())
             .BuildServiceProvider();
 
-        var interceptedSut = sp.GetRequiredService<IThingy>();
+        var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();
 
         // Act
         interceptedSut.DoSomething();
