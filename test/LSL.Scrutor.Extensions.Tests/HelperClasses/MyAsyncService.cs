@@ -3,18 +3,11 @@ using LSL.AbstractConsole;
 
 namespace LSL.Scrutor.Extensions.Tests.HelperClasses;
 
-public class MyAsyncService : IMyAsyncService
+public class MyAsyncService(IConsole console) : IMyAsyncService
 {
-    private readonly IConsole _console;
-
-    public MyAsyncService(IConsole console)
-    {
-        _console = console;
-    }
-
     public async Task RunAsync()
     {
         await Task.Delay(1000);
-        _console.WriteLine("My output");
+        console.WriteLine("My output");
     }
 }
