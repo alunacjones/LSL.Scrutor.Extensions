@@ -177,3 +177,59 @@ public class MyConsumer
     }
 }
 ```
+
+### Example with multiple interceptors
+
+Using the classes in the previous example we can add a new interceptor to show 
+registration of multiple interceptors using a configuration delegate:
+
+```csharp
+// Extra interceptor
+public class MyOtherInterceptor : IInterceptor
+{
+    private readonly IConsole _console;
+
+    public MyInterceptor(IConsole console) => _console = console;
+
+    public void Intercept(IInvocation invocation)
+    {
+        _console.WriteLine($"(Other) Before invoke of {invocation.Method.Name}");
+        invocation.Proceed();
+        _console.WriteLine($"(Other) After invoke of {invocation.Method.Name}");
+    }
+}
+```
+
+The following code will then register both interceptors against our service:
+
+```csharp
+services.AddInterceptorsFromAssemblyOf<MyInterceptor>()
+    .AddAbstractConsole()
+    .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
+    .DecorateWithInterceptor<ISyncServiceToDecorate>(c => c
+        .AddInterceptor<MyInterceptor>()
+        .AddInterceptor<MyOtherInterceptor>());
+```
+
+Now the following consumer code will result in extra logging:
+
+```csharp
+public class MyConsumer
+{
+    private readonly ISyncServiceToDecorate _syncServiceToDecorate;
+
+    public MyConsumer(ISyncServiceToDecorate syncServiceToDecorate) => _syncServiceToDecorate = syncServiceToDecorate;
+
+    public void DoSomethingElse()
+    {
+        // This would result in an `IConsole`
+        // getting output of:
+        // (Other) Before invoke of 'DoSomething'
+        // Before invoke of 'DoSomething'
+        // Something done
+        // After invoke of 'DoSomething'
+        // (Other) After invoke of 'DoSomething'
+        _syncServiceToDecorate.DoSomething();
+    }
+}
+```

@@ -111,8 +111,8 @@ public class DecorateWithInterceptorTests
             .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
             .DecorateWithInterceptors<ISyncServiceToDecorate>(c => c
-                .Add<MyInterceptor>()
-                .Add<MyOtherInterceptor>())
+                .AddInterceptor<MyInterceptor>()
+                .AddInterceptor<MyOtherInterceptor>())
             .BuildServiceProvider();
 
         var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();

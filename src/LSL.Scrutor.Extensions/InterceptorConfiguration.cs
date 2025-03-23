@@ -17,7 +17,7 @@ public class InterceptorConfiguration
     /// </summary>
     /// <typeparam name="TInterceptor"></typeparam>
     /// <returns></returns>
-    public InterceptorConfiguration Add<TInterceptor>()
+    public InterceptorConfiguration AddInterceptor<TInterceptor>()
         where TInterceptor : IInterceptor
     {
         AddInterceptors(typeof(TInterceptor));
