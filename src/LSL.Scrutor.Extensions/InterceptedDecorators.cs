@@ -11,9 +11,9 @@ namespace Microsoft.Extensions.DependencyInjection;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 
 /// <summary>
-/// ProxiedDecorators
+/// InterceptedDecoratorsExtensions
 /// </summary>
-public static class InterceptedDecorators
+public static class InterceptedDecoratorsExtensions
 {
     /// <summary>
     /// Decorates <c><paramref name="serviceTypeToDecorate"/></c> with the given <c><paramref name="interceptorTypes"/></c>
