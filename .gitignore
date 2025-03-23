@@ -368,3 +368,4 @@ FodyWeavers.xsd
 docs/**
 !docs/docfx.json
 !docs/**/*.md
+!docs/toc.yml
