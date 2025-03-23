@@ -1,5 +1,6 @@
 ---
 outputFileName: index.html
+_layout: landing
 ---
 [![Build status](https://img.shields.io/appveyor/ci/alunacjones/lsl-scrutor-extensions.svg)](https://ci.appveyor.com/project/alunacjones/lsl-scrutor-extensions)
 [![Coveralls branch](https://img.shields.io/coverallsCoverage/github/alunacjones/LSL.Scrutor.Extensions)](https://coveralls.io/github/alunacjones/LSL.Scrutor.Extensions)
@@ -339,7 +340,7 @@ services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()
     .AddAbstractConsole()
-    .DecorateWithInterceptors<IMyAsyncService>(c => c.AddInterceptor<MyAsyncInterceptor>());
+.DecorateWithInterceptors<IMyAsyncService>(c => c.AddInterceptor<MyAsyncInterceptor>());
 ```
 
 Both methods of registration end up doing the same thing. The first one is just a convenience method for less code.

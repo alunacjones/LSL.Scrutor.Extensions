@@ -38,6 +38,7 @@
       <ReadmeFrontMatter>
 ---
 outputFileName: index.html
+_layout: landing
 ---      
       </ReadmeFrontMatter>
       <ReadmeContent>$([System.IO.File]::ReadAllText('../../readme.md').TrimEnd())</ReadmeContent>
