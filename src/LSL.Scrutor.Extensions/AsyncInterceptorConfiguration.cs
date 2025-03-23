@@ -17,7 +17,7 @@ public class AsyncInterceptorConfiguration
     /// </summary>
     /// <typeparam name="TInterceptor"></typeparam>
     /// <returns></returns>
-    public AsyncInterceptorConfiguration Add<TInterceptor>()
+    public AsyncInterceptorConfiguration AddInterceptor<TInterceptor>()
         where TInterceptor : IAsyncInterceptor
     {
         AddInterceptors(typeof(TInterceptor));

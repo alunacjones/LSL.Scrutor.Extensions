@@ -180,7 +180,7 @@ public class DecorateWithInterceptorTests
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
             .AddScoped<IMyAsyncService, MyAsyncService>()
             .AddAbstractConsole(c => c.TextWriter = writer)
-            .DecorateWithAsyncInterceptors<IMyAsyncService>(c => c.Add<MyAsyncInterceptor>())
+            .DecorateWithAsyncInterceptors<IMyAsyncService>(c => c.AddInterceptor<MyAsyncInterceptor>())
             .BuildServiceProvider();
 
         var interceptedSut = sp.GetRequiredService<IMyAsyncService>();
