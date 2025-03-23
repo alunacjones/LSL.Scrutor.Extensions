@@ -1,6 +1,6 @@
 namespace LSL.Scrutor.Extensions.Tests.HelperClasses;
 
-public interface IMyOtherFactory
+public interface IMyFactoryForaConcreteType
 {
     MyService Create(string name);
 }

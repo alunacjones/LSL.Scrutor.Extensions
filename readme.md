@@ -15,45 +15,43 @@ This package providers some extensions to [Scrutor](https://www.nuget.org/packag
 
 If you have a factory interface then you can automatically create a proxy that will instantiate the type with this method.
 
-### Example
+### Example with a concrete factory return type
 
 Assuming you have a definition for a factory interface as below:
 
 ```csharp
-public interface IMyFactory
+public interface IMyFactoryForaConcreteType
 {
-    IMyService Create(string name);
+    MyService Create(string name);
 }
 ```
 
 and also a class definition of:
 
 ```csharp
-public class MyService : IMy
+public class MyService : IMyService
 {
     private readonly string _name;
-
+    
     public MyService(string name)
     {
         _name = name;
     }
 
-    public void MakeTheServiceDoSomething()
-    {
-        Console.WriteLine(name);
-    }
+    public string Name => _name.ToUpper();
 }
 ```
 
 Then a factory implementation can be created with the following:
 
 ```csharp
-services.AddAutoFactory<IMyFactory>()
+services.AddAutoFactory<IMyFactoryForaConcreteType>();
 ```
 
 > **NOTE**: The returned service from an `AddAutoFactory`'s 
 > interface can
 > have other  dependencies too as they will be automatically resolved.
+>
 > Any dependencies must be registered in the `IServiceCollection`
 
 This factory can than be injected into other services to create instances
@@ -64,21 +62,48 @@ of `MyService` using the factory interface.
 ```csharp
 public class MyConsumer
 {
-    private readonly _factory;
+    private readonly IMyFactoryForaConcreteType _factory;
 
-    public MyConsumer(IMyFactory factory)
+    public MyConsumer(IMyFactoryForaConcreteType factory)
     {
         _factory = factory;
     }
 
     public void DoSomething()
     {
-        // Will write 'a-name' to the console as per the earlier
-        // definition of 'MyService'
-        _factory.Create("a-name").MakeTheServiceDoSomething();
+        // `name` will have the value `A-NAME`
+        var name = _factory.Create("a-name").Name;
     }
 }
 ```
+
+### Example with an interface for the factory return type
+
+Assuming you have a definition for a factory interface as below:
+
+```csharp
+public interface IMyFactory
+{
+    IMyService Create(string name);
+}
+```
+
+Then we need to further configure our auto factory so that it knows
+what concrete type to instantiate. This can be achieved as follows:
+
+```csharp
+services.AddAutoFactory<IMyFactory>(c => c
+    .AddConcreteType<IMyService, MyService>()
+    .SetLifetime(ServiceLifetime.Scoped))
+```
+
+The code above configures the settings for the auto factory
+using the delegate we pass into the `AddAutoFactory` call.
+
+In this instance we are also electing to call the optional `SetLifeTime` 
+method to set the `ServiceLifetime` for the registered factory.
+
+> **NOTE**: The default lifetime for a factory is `Singleton`
 
 ## DecorateWithInterceptor
 
@@ -96,16 +121,11 @@ Given definitions for the following in an assembly:
 > package.
 
 ```csharp
-public interface IThingy
-{
-    void DoSomething();
-}
-
-public class Thingy : IThingy
+public class SyncServiceToDecorate : ISyncServiceToDecorate
 {
     private readonly IConsole _console;
 
-    public Thingy(IConsole console) => _console = console;
+    public SyncServiceToDecorate(IConsole console) => _console = console;
 
     public void DoSomething() => _console.WriteLine("Something done");
 }
@@ -129,19 +149,22 @@ Then we can easily register a decorator with the provided interceptor as follows
 
 ```csharp
 services.AddInterceptorsFromAssemblyOf<MyInterceptor>()
-    .AddScoped<IThingy, Thingy>()
-    .DecorateWithInterceptor<IThingy, MyInterceptor>();
+    .AddAbstractConsole()
+    .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
+    .DecorateWithInterceptor<ISyncServiceToDecorate, MyInterceptor>();
 ```
 
-Now we can just inject an `IThingy` and get `MyInterceptor` to intercept every call on it.
+Now we can just inject an `ISyncServiceToDecorate` and get `MyInterceptor` to intercept every call on it.
 
-If using the aforementioned `IConsole` implemtation, then a class that consumes `IThingy`
+If using the aforementioned `IConsole` implementation, then a class that consumes `ISyncServiceToDecorate`
 as shown below would get intercepted:
 
 ```csharp
 public class MyConsumer
 {
-    public MyConsumer(IThingy thing) => _thingy = thingy;
+    private readonly ISyncServiceToDecorate _syncServiceToDecorate;
+
+    public MyConsumer(ISyncServiceToDecorate syncServiceToDecorate) => _syncServiceToDecorate = syncServiceToDecorate;
 
     public void DoSomethingElse()
     {
@@ -150,7 +173,7 @@ public class MyConsumer
         // Before invoke of 'DoSomething'
         // Something done
         // After invoke of 'DoSomething'
-        _thingy.DoSomething();
+        _syncServiceToDecorate.DoSomething();
     }
 }
 ```

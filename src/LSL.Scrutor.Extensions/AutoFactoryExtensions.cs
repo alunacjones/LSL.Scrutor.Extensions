@@ -20,7 +20,6 @@ public static class AutoFactoryExtensions
     /// </summary>
     /// <param name="services">The service collection to add to</param>
     /// <param name="configurator">An optional configurator for configuring the auto factory further</param>
-    /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <typeparam name="TFactory">The interface type of the factory</typeparam>
     /// <returns></returns>
     /// <example lang="csharp">
@@ -28,10 +27,9 @@ public static class AutoFactoryExtensions
     /// </example>
     public static IServiceCollection AddAutoFactory<TFactory>(
         this IServiceCollection services,
-        Action<AutoFactoryConfiguration> configurator = null,
-        ServiceLifetime lifetime = ServiceLifetime.Singleton)
+        Action<AutoFactoryConfiguration> configurator = null)
         where TFactory : class => 
-        AddAutoFactory(services, typeof(TFactory), configurator, lifetime);
+        AddAutoFactory(services, typeof(TFactory), configurator);
 
     /// <summary>
     /// Adds a factory implementation for <c><paramref name="factoryInterfaceType"/></c>
@@ -39,18 +37,16 @@ public static class AutoFactoryExtensions
     /// <param name="services">The service collection to add to</param>
     /// <param name="factoryInterfaceType">The interface type of the factory</param>
     /// <param name="configurator">An optional configurator for configuring the auto factory further</param>
-    /// <param name="lifetime">The lifetime of the factory. Defaults to <c><see cref="ServiceLifetime.Singleton"/></c></param>
     /// <returns></returns>
     public static IServiceCollection AddAutoFactory(
         this IServiceCollection services,
         Type factoryInterfaceType,
-        Action<AutoFactoryConfiguration> configurator = null,
-        ServiceLifetime lifetime = ServiceLifetime.Singleton)
+        Action<AutoFactoryConfiguration> configurator = null)
     {
         var configuration = new AutoFactoryConfiguration();
         configurator?.Invoke(configuration);
 
-        services.Add(new(factoryInterfaceType, sp => CreateFactory(sp, factoryInterfaceType, configuration), lifetime));
+        services.Add(new(factoryInterfaceType, sp => CreateFactory(sp, factoryInterfaceType, configuration), configuration.Lifetime));
         return services;
     }
 

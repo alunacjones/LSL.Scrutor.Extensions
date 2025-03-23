@@ -11,18 +11,20 @@ public class AddAutoFactoryTests
     public void AddAutoFactory_GivenAnInterface_ThenGeneratedProxyShouldCreateTheInitialisedService()
     {
         var sp = new ServiceCollection()
-            .AddAutoFactory<IMyOtherFactory>()
+            .AddAutoFactory<IMyFactoryForaConcreteType>()
             .AddScoped<Prefixer>()
             .BuildServiceProvider();
-
-        sp.GetRequiredService<IMyOtherFactory>().Create("my-name").Name.Should().Be("Prefix: my-name");
+        
+        sp.GetRequiredService<IMyFactoryForaConcreteType>().Create("my-name").Name.Should().Be("Prefix: my-name");
     }
 
     [Test]
     public void AddAutoFactory_GivenAnInterface_ThenGeneratedProxyShouldCreateTheInitialisedServiceViaAnInterface()
     {
         var sp = new ServiceCollection()
-            .AddAutoFactory<IMyFactory>(c => c.AddConcreteType<IMyService, MyService>())
+            .AddAutoFactory<IMyFactory>(c => c
+                .AddConcreteType<IMyService, MyService>()
+                .SetLifetime(ServiceLifetime.Scoped))
             .AddScoped<Prefixer>()
             .BuildServiceProvider();
 
