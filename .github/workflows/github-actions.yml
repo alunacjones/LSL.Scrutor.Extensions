@@ -1,4 +1,4 @@
-name: Create documentation site
+name: LSL.Scrutor.Extensions
 on:
   push:
     branches:
