@@ -153,7 +153,8 @@ public class MyInterceptor : IInterceptor
 Then we can easily register a decorator with the provided interceptor as follows:
 
 ```csharp
-services.AddInterceptorsFromAssemblyOf<MyInterceptor>()
+services
+    .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()
     .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
     .DecorateWithInterceptor<ISyncServiceToDecorate, MyInterceptor>();
@@ -208,7 +209,8 @@ public class MyOtherInterceptor : IInterceptor
 The following code will then register both interceptors against our service:
 
 ```csharp
-services.AddInterceptorsFromAssemblyOf<MyInterceptor>()
+services
+    .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()
     .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
     .DecorateWithInterceptor<ISyncServiceToDecorate>(c => c
@@ -331,7 +333,7 @@ services
 
 We could also use the async decoratition configuration method as follows:
 
-```
+```csharp
 services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()

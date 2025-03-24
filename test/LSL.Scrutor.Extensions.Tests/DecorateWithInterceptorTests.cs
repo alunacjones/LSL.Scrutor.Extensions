@@ -2,11 +2,13 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Castle.DynamicProxy;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using LSL.AbstractConsole.ServiceProvider;
 using LSL.Scrutor.Extensions.Tests.HelperClasses;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace LSL.Scrutor.Extensions.Tests;
 
@@ -76,6 +78,46 @@ public class DecorateWithInterceptorTests
             .AddScoped<ISyncServiceToDecorate, SyncServiceToDecorate>()
             .AddAbstractConsole(c => c.TextWriter = writer)
             .DecorateWithInterceptors<ISyncServiceToDecorate>(new[] { typeof(MyInterceptor), typeof(MyOtherInterceptor) }.AsEnumerable())
+            .BuildServiceProvider();
+
+        var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();
+
+        // Act
+        interceptedSut.DoSomething();
+        
+        // Assert
+        using var assertionScope = new AssertionScope();
+
+        var result = writer.ToString();
+
+        result.Should().Be(
+            """
+            Before invoke (other)
+            Before invoke of DoSomething
+            Something done
+            After invoke of DoSomething
+            After invoke (other)
+
+            """.ReplaceLineEndings()
+        );
+    }
+
+    [Test]
+    public void DecorateWithInterceptorsViaScrutorScan()
+    {
+        // Arrange
+        var writer = new StringWriter();
+
+        var sp = new ServiceCollection()
+            .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
+            .Scan(c => c.FromAssemblyOf<DecorateWithInterceptorTests>()
+                .AddClasses()
+                .AsImplementedInterfaces()
+                .WithRegistrationStrategy(
+                    (services, sd) => services.DecorateWithInterceptors(sd.ServiceType, typeof(MyInterceptor), typeof(MyOtherInterceptor))
+                )
+            )
+            .AddAbstractConsole(c => c.TextWriter = writer)
             .BuildServiceProvider();
 
         var interceptedSut = sp.GetRequiredService<ISyncServiceToDecorate>();

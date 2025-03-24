@@ -18,11 +18,8 @@ public class InterceptorConfiguration
     /// <typeparam name="TInterceptor"></typeparam>
     /// <returns></returns>
     public InterceptorConfiguration AddInterceptor<TInterceptor>()
-        where TInterceptor : IInterceptor
-    {
+        where TInterceptor : IInterceptor => 
         AddInterceptors(typeof(TInterceptor));
-        return this;
-    }
 
     /// <summary>
     /// Adds the <c><paramref name="types"/></c> to the list of interceptors to apply

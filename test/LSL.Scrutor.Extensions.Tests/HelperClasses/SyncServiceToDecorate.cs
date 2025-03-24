@@ -2,11 +2,7 @@ using LSL.AbstractConsole;
 
 namespace LSL.Scrutor.Extensions.Tests.HelperClasses;
 
-public class SyncServiceToDecorate : ISyncServiceToDecorate
+public class SyncServiceToDecorate(IConsole console) : ISyncServiceToDecorate
 {
-    private readonly IConsole _console;
-
-    public SyncServiceToDecorate(IConsole console) => _console = console;
-
-    public void DoSomething() => _console.WriteLine("Something done");
+    public void DoSomething() => console.WriteLine("Something done");
 }
