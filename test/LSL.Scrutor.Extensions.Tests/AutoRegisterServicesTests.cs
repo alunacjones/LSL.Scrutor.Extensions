@@ -77,7 +77,7 @@ public class AutoRegisterServicesTests
             .AutoRegisterServicesFromAssemblyOf<AutoRegisterServicesTests>()
             .ShouldHaveAllTheServicesRegistered();
     }
-    
+
     [Test]
     public void WhenRegisteringFromATypeWithAdditionalConfiguration_ThenTheCollectionShouldHaveTheExpectedServices()
     {
@@ -86,8 +86,8 @@ public class AutoRegisterServicesTests
                 s => s
                     .AddClasses(t => t.AssignableTo<ExtraService>())
                     .AsSelfWithInterfaces()
-                    .WithSingletonLifetime()                
+                    .WithSingletonLifetime()
             )
             .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Singleton));
-    }    
+    }
 }
