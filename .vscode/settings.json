@@ -10,5 +10,13 @@
         "name": "Generate Docs Site",
         "path": "${workspaceFolder}/docs"
     }
-  ]
+  ],
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"  
+  },
+  "cSpell.words": [
+    "Prefixer",
+    "Scrutor"
+  ],
+
 }

@@ -14,7 +14,7 @@ public class AddAutoFactoryTests
             .AddAutoFactory<IMyFactoryForaConcreteType>()
             .AddScoped<Prefixer>()
             .BuildServiceProvider();
-        
+
         sp.GetRequiredService<IMyFactoryForaConcreteType>().Create("my-name").Name.Should().Be("Prefix: my-name");
     }
 
@@ -40,5 +40,5 @@ public class AddAutoFactoryTests
             .BuildServiceProvider();
 
         new Action(() => sp.GetRequiredService<IMyFactory>().Create("my-name")).Should().Throw<InvalidOperationException>();
-    }    
+    }
 }
