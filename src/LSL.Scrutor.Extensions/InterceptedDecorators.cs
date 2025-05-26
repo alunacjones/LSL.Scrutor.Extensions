@@ -25,37 +25,34 @@ public static class InterceptedDecoratorsExtensions
     public static IServiceCollection DecorateWithInterceptors(
         this IServiceCollection services,
         Type serviceTypeToDecorate,
-        IEnumerable<Type> interceptorTypes) 
+        IEnumerable<Type> interceptorTypes)
     {
-        if (!interceptorTypes.Any())
+        foreach (var interceptorType in interceptorTypes.GuardAgainstNull(nameof(interceptorTypes)))
         {
-            throw new ArgumentException("No interceptors have been provided", nameof(interceptorTypes));
-        }
-
-        foreach (var interceptorType in interceptorTypes)
-        {
-            services.Decorate(serviceTypeToDecorate, (service, serviceProvider) =>
-            {
-                if (typeof(IInterceptor).IsAssignableFrom(interceptorType))
+            services.GuardAgainstNull(nameof(services)).Decorate(
+                serviceTypeToDecorate.GuardAgainstNull(nameof(serviceTypeToDecorate)),
+                (service, serviceProvider) =>
                 {
-                    return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
-                        serviceTypeToDecorate,
-                        service,
-                        (IInterceptor)serviceProvider.GetRequiredService(interceptorType));
-                }
+                    if (typeof(IInterceptor).IsAssignableFrom(interceptorType))
+                    {
+                        return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
+                            serviceTypeToDecorate,
+                            service,
+                            (IInterceptor)serviceProvider.GetRequiredService(interceptorType));
+                    }
 
-                if (typeof(IAsyncInterceptor).IsAssignableFrom(interceptorType))
-                {
-                    return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
-                        serviceTypeToDecorate,
-                        service,
-                        (IAsyncInterceptor)serviceProvider.GetRequiredService(interceptorType));
-                }
+                    if (typeof(IAsyncInterceptor).IsAssignableFrom(interceptorType))
+                    {
+                        return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
+                            serviceTypeToDecorate,
+                            service,
+                            (IAsyncInterceptor)serviceProvider.GetRequiredService(interceptorType));
+                    }
 
-                throw new ArgumentException(
-                    "The interceptor type must be either an IInterceptor or an IAsyncInterceptor",
-                    nameof(interceptorType));
-            });
+                    throw new ArgumentException(
+                        "The interceptor type must be either an IInterceptor or an IAsyncInterceptor",
+                        nameof(interceptorType));
+                });
         }
 
         return services;
@@ -68,7 +65,7 @@ public static class InterceptedDecoratorsExtensions
     /// <param name="serviceTypeToDecorate"></param>
     /// <param name="interceptorTypes"></param>
     /// <returns></returns>
-    public static IServiceCollection DecorateWithInterceptors(this IServiceCollection services, Type serviceTypeToDecorate, params Type[] interceptorTypes) => 
+    public static IServiceCollection DecorateWithInterceptors(this IServiceCollection services, Type serviceTypeToDecorate, params Type[] interceptorTypes) =>
         services.DecorateWithInterceptors(serviceTypeToDecorate, interceptorTypes.AsEnumerable());
 
     /// <summary>
@@ -103,7 +100,7 @@ public static class InterceptedDecoratorsExtensions
     /// <returns></returns>
     public static IServiceCollection DecorateWithInterceptors<TToDecorate>(this IServiceCollection source, params Type[] interceptorTypes)
         where TToDecorate : class =>
-        source.DecorateWithInterceptors(typeof(TToDecorate), interceptorTypes);
+        source.DecorateWithInterceptors(typeof(TToDecorate), interceptorTypes.GuardAgainstEmpty(nameof(interceptorTypes)));
 
     /// <summary>
     /// Decorate <c><typeparamref name="TToDecorate"/></c> using the provided <paramref name="configurator"/>
@@ -157,6 +154,8 @@ public static class InterceptedDecoratorsExtensions
     /// <returns></returns>
     public static IServiceCollection AddInterceptorsFromAssemblies(this IServiceCollection source, IEnumerable<Assembly> assemblies)
     {
+        assemblies.GuardAgainstNull(nameof(assemblies));
+
         foreach (var assembly in assemblies)
         {
             assembly.GetTypes()
@@ -175,7 +174,7 @@ public static class InterceptedDecoratorsExtensions
     /// <param name="assemblies"></param>
     /// <returns></returns>
     public static IServiceCollection AddInterceptorsFromAssemblies(this IServiceCollection source, params Assembly[] assemblies) =>
-        source.AddInterceptorsFromAssemblies(assemblies.AsEnumerable());
+        source.AddInterceptorsFromAssemblies(assemblies.AsEnumerable().GuardAgainstEmpty(nameof(assemblies)));
 
     /// <summary>
     /// Adds all <c><see cref="IInterceptor"/></c> and all <c><see cref="IAsyncInterceptor"/></c> types 
