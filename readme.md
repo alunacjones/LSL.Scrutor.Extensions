@@ -8,14 +8,17 @@ This package provides some extensions to [Scrutor](https://www.nuget.org/package
 
 The current library provides extensions for:
 
-* <!-- REPLACE [Auto Factories](./Auto%20Factories/01-overview.md) -->Auto Factories<!-- END:REPLACE -->
-* <!-- REPLACE [Auto Registration](./Auto%20Registration/01-overview.md) -->Auto Registration<!-- END:REPLACE -->
-* <!-- REPLACE [Intercepting Decorators](./Intercepting%20Decorators/01-overview.md) -->Intercepting Decorators<!-- END:REPLACE -->
-
-> **NOTE**: These extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
+> **NOTE**: Some extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
 > and classes used on each extension method must be public
 
+| Feature                                                                                                                                                                      | Uses Castle.Core? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| <!-- REPLACE [Auto Factories](./Auto%20Factories/01-overview.md) -->Auto Factories<!-- END:REPLACE --> | Yes                                                             |
+| <!-- REPLACE [Auto Registration](./Auto%20Registration/01-overview.md) -->Auto Registration<!-- END:REPLACE -->                                                              | No                                                              |
+| <!-- REPLACE [Intercepting Decorators](./Intercepting%20Decorators/01-overview.md) -->Intercepting Decorators<!-- END:REPLACE -->                                            | Yes                                                             |
+
 <!-- HIDE -->
+
 ## Further Documentation
 
 More in-depth documentation can be found [here](https://alunacjones.github.io/LSL.Scrutor.Extensions/)
@@ -41,7 +44,7 @@ and also a class definition of:
 public class MyService : IMyService
 {
     private readonly string _name;
-    
+
     public MyService(string name)
     {
         _name = name;
@@ -57,9 +60,9 @@ Then a factory implementation can be created with the following:
 services.AddAutoFactory<IMyFactoryForaConcreteType>();
 ```
 
-> **NOTE**: The returned service from an `AddAutoFactory`'s 
+> **NOTE**: The returned service from an `AddAutoFactory`'s
 > interface can
-> have other  dependencies too as they will be automatically resolved.
+> have other dependencies too as they will be automatically resolved.
 >
 > Any dependencies must be registered in the `IServiceCollection`
 
@@ -109,7 +112,7 @@ services.AddAutoFactory<IMyFactory>(c => c
 The code above configures the settings for the auto factory
 using the delegate we pass into the `AddAutoFactory` call.
 
-In this instance we are also electing to call the optional `SetLifeTime` 
+In this instance we are also electing to call the optional `SetLifeTime`
 method to set the `ServiceLifetime` for the registered factory.
 
 > **NOTE**: The default lifetime for a factory is `Singleton`
@@ -125,8 +128,8 @@ Scrutor provides great `Decorator` functionality but sometimes a more [Aspect Or
 Given definitions for the following in an assembly:
 
 > **NOTE**: The following example expects that an `IConsole` implementation is registered in the `IServiceCollection`
-> See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with 
-> an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
+> See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with
+> an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider)
 > package.
 
 ```csharp
@@ -195,7 +198,7 @@ public class MyConsumer
 
 ### Example with multiple interceptors
 
-Using the classes in the previous example we can add a new interceptor to show 
+Using the classes in the previous example we can add a new interceptor to show
 registration of multiple interceptors using a configuration delegate:
 
 ```csharp
@@ -260,8 +263,8 @@ Please refer to the documentation there to see how to implement an `IAsyncInterc
 Given definitions for the following in an assembly:
 
 > **NOTE**: The following example expects that an `IConsole` implementation is registered in the `IServiceCollection`
-> See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with 
-> an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
+> See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with
+> an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider)
 > package.
 
 First we define an `IAsyncInterceptor`
@@ -278,7 +281,7 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
     public void InterceptAsynchronous(IInvocation invocation)
     {
-        invocation.ReturnValue = InternalInterceptAsynchronous(invocation);    
+        invocation.ReturnValue = InternalInterceptAsynchronous(invocation);
     }
 
     private async Task InternalInterceptAsynchronous(IInvocation invocation)
@@ -372,4 +375,5 @@ public class MyConsumer
     }
 }
 ```
+
 <!-- END:HIDE -->

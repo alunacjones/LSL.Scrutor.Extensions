@@ -8,10 +8,13 @@ This package provides some extensions to [Scrutor](https://www.nuget.org/package
 
 The current library provides extensions for:
 
-* [Auto Factories](./Auto%20Factories/01-overview.md)
-* [Auto Registration](./Auto%20Registration/01-overview.md)
-* [Intercepting Decorators](./Intercepting%20Decorators/01-overview.md)
-
-> **NOTE**: These extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
+> **NOTE**: Some extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
 > and classes used on each extension method must be public
+
+| Feature                                                                                                                                                                      | Uses Castle.Core? |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [Auto Factories](./Auto%20Factories/01-overview.md) | Yes                                                             |
+| [Auto Registration](./Auto%20Registration/01-overview.md)                                                              | No                                                              |
+| [Intercepting Decorators](./Intercepting%20Decorators/01-overview.md)                                            | Yes                                                             |
+
 
