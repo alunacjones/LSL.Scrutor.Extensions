@@ -6,9 +6,14 @@
       "path": "${workspaceFolder}"
     },
     {
-        "command": "dotnet docfx; dotnet serve -d _site",
-        "name": "Generate Docs Site",
-        "path": "${workspaceFolder}/docs"
+        "command": "mkdocs serve",
+        "name": "Serve Docs Site",
+        "path": "${workspaceFolder}"
+    },    
+    {
+        "command": "mkdocs gh-deploy --force",
+        "name": "Deploy Docs Site",
+        "path": "${workspaceFolder}"
     }
   ],
   "yaml.schemas": {
