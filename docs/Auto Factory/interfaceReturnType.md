@@ -2,7 +2,7 @@
 
 Assuming you have a definition for a factory interface as below:
 
-```csharp
+```csharp { data-fiddle="JTMDY6" }
 public interface IMyFactory
 {
     IMyService Create(string name);
@@ -12,7 +12,7 @@ public interface IMyFactory
 Then we need to further configure our auto factory so that it knows
 what concrete type to instantiate. This can be achieved as follows:
 
-```csharp
+```csharp { data-fiddle="JTMDY6" }
 services.AddAutoFactory<IMyFactory>(c => c
     .AddConcreteType<IMyService, MyService>()
     .SetLifetime(ServiceLifetime.Scoped))

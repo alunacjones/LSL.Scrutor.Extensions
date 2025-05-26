@@ -1,4 +1,4 @@
-name: LSL.VariableReplacer
+name: LSL.Scrutor.Extensions
 on:
   push:
     branches:

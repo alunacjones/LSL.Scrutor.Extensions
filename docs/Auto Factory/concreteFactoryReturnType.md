@@ -2,7 +2,7 @@
 
 Assuming you have a definition for a factory interface as below:
 
-```csharp
+```csharp { data-fiddle="oCufZE" }
 public interface IMyFactoryForaConcreteType
 {
     MyService Create(string name);
@@ -11,7 +11,7 @@ public interface IMyFactoryForaConcreteType
 
 and also a class definition of:
 
-```csharp
+```csharp { data-fiddle="oCufZE" }
 public class MyService : IMyService
 {
     private readonly string _name;
@@ -27,7 +27,7 @@ public class MyService : IMyService
 
 Then a factory implementation can be created with the following:
 
-```csharp
+```csharp  { data-fiddle="oCufZE" }
 services.AddAutoFactory<IMyFactoryForaConcreteType>();
 ```
 
