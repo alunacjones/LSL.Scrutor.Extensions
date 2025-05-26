@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using LSL.Scrutor.Extensions;
 using Scrutor;
 
@@ -31,9 +30,9 @@ public static class AutoRegistrationServiceCollectionExtensions
         IEnumerable<Assembly> assembliesToScan,
         Action<IImplementationTypeSelector> extraRegistrationConfigurator = null)
     {
-        source.Scan(scan =>
+        source.GuardAgainstNull(nameof(source)).Scan(scan =>
         {
-            var selector = scan.FromAssemblies(assembliesToScan);
+            var selector = scan.FromAssemblies(assembliesToScan.GuardAgainstNull(nameof(assembliesToScan)));
 
             selector
                 .AddClasses(classes => classes.AssignableTo<ITransientService>())
@@ -65,7 +64,7 @@ public static class AutoRegistrationServiceCollectionExtensions
     public static IServiceCollection AutoRegisterServices(
         this IServiceCollection source,
         params Assembly[] assembliesToScan) =>
-        source.AutoRegisterServices(assembliesToScan.AsEnumerable(), null);
+        source.AutoRegisterServices(assembliesToScan.GuardAgainstEmpty(nameof(assembliesToScan)).AsEnumerable(), null);
 
     /// <summary>
     /// Automatically registers all concrete types
@@ -82,7 +81,7 @@ public static class AutoRegistrationServiceCollectionExtensions
         this IServiceCollection source,
         Action<IImplementationTypeSelector> extraRegistrationConfigurator = null,
         params Assembly[] assembliesToScan) =>
-        source.AutoRegisterServices(assembliesToScan.AsEnumerable(), extraRegistrationConfigurator);
+        source.AutoRegisterServices(assembliesToScan.GuardAgainstEmpty(nameof(assembliesToScan)).AsEnumerable(), extraRegistrationConfigurator);
 
     /// <summary>
     /// Automatically registers all concrete types
@@ -115,5 +114,5 @@ public static class AutoRegistrationServiceCollectionExtensions
     public static IServiceCollection AutoRegisterServicesFromAssemblyOf<T>(
         this IServiceCollection source,
         Action<IImplementationTypeSelector> extraRegistrationConfigurator = null) =>
-        source.AutoRegisterServices([typeof(T).Assembly], extraRegistrationConfigurator);        
+        source.AutoRegisterServices([typeof(T).Assembly], extraRegistrationConfigurator);
 }

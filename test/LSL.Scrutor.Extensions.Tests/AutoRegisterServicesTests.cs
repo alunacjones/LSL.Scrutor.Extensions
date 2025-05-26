@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using FluentAssertions;
 using LSL.Scrutor.Extensions.Tests.AutoRegisterTestClasses;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,6 +27,34 @@ public class AutoRegisterServicesTests
                     .AsSelfWithInterfaces()
                     .WithSingletonLifetime())
             .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Singleton));
+    }
+
+    [Test]
+    public void WhenRegisteringFromEnumerableWithNullAssemblies_ThenItShouldThrow()
+    {
+        new Action(() => new ServiceCollection()
+            .AutoRegisterServices(
+                null,
+                s => s
+                    .AddClasses(t => t.AssignableTo<ExtraService>())
+                    .AsSelfWithInterfaces()
+                    .WithSingletonLifetime())
+        )
+        .Should()
+        .ThrowExactly<ArgumentNullException>()
+        .And
+        .ParamName.Should().Be("assembliesToScan");
+    }
+
+    [Test]
+    public void WhenRegisteringFromParamsWithEmptyAssemblies_ThenItShouldThrow()
+    {
+        new Action(() => new ServiceCollection()
+            .AutoRegisterServices())
+        .Should()
+        .ThrowExactly<ArgumentException>()
+        .And
+        .ParamName.Should().Be("assembliesToScan");
     }
 
     [Test]
