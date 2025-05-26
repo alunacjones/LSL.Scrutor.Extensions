@@ -18,7 +18,7 @@ The current library provides extensions for:
 <!-- HIDE -->
 ## Further Documentation
 
-More in-depth documentation can be found [here](https://alunacjones.github.io/LSL.VariableReplacer/)
+More in-depth documentation can be found [here](https://alunacjones.github.io/LSL.Scrutor.Extensions/)
 
 ## AddAutoFactory
 
