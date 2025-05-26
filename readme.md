@@ -4,12 +4,21 @@
 
 # LSL.Scrutor.Extensions
 
-More documentation can be found [here](https://alunacjones.github.io/LSL.Scrutor.Extensions/)
+This package provides some extensions to [Scrutor](https://www.nuget.org/packages/scrutor/) and [Microsoft.Extensions.DependencyInjection.Abstractions ](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions/)
 
-This package providers some extensions to [Scrutor](https://www.nuget.org/packages/scrutor/) and [Microsoft.Extensions.DependencyInjection.Abstractions ](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions/)
+The current library provides extensions for:
+
+* Auto Factories
+* Auto Registration
+* Decorating Interceptors
 
 > **NOTE**: These extension methods use [Castle.Core](https://www.nuget.org/packages/Castle.Core) and therefore the interfaces
 > and classes used on each extension method must be public
+
+<!-- HIDE -->
+## Further Documentation
+
+More in-depth documentation can be found [here](https://alunacjones.github.io/LSL.VariableReplacer/)
 
 ## AddAutoFactory
 
@@ -107,15 +116,15 @@ method to set the `ServiceLifetime` for the registered factory.
 
 ## DecorateWithInterceptor
 
-Scrutor provides great `Decorator` functionality but sometimes a more [Aspect Oreinted Programming](https://www.google.com/search?client=firefox-b-d&q=aspect+oriented+programming) paradigm is needed.
+Scrutor provides great `Decorator` functionality but sometimes a more [Aspect Oriented Programming](https://www.google.com/search?client=firefox-b-d&q=aspect+oriented+programming) paradigm is needed.
 
-[Castle.Core](https://www.nuget.org/packages/castle.core/) provides great interception capabilites that this method utilises.
+[Castle.Core](https://www.nuget.org/packages/castle.core/) provides great interception capabilities that this method utilises.
 
 ### Example
 
 Given definitions for the following in an assembly:
 
-> **NOTE**: The following example expectes that an `IConsole` implementation is registered in the `IServiceCollection`
+> **NOTE**: The following example expects that an `IConsole` implementation is registered in the `IServiceCollection`
 > See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with 
 > an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
 > package.
@@ -250,7 +259,7 @@ Please refer to the documentation there to see how to implement an `IAsyncInterc
 
 Given definitions for the following in an assembly:
 
-> **NOTE**: The following example expectes that an `IConsole` implementation is registered in the `IServiceCollection`
+> **NOTE**: The following example expects that an `IConsole` implementation is registered in the `IServiceCollection`
 > See [LSL.AbstractConsole](https://www.nuget.org/packages/LSL.AbstractConsole) for an implementation that can be used with 
 > an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
 > package.
@@ -331,7 +340,7 @@ services
     .DecorateWithAsyncInterceptor<IMyAsyncService, MyAsyncInterceptor>();
 ```
 
-We could also use the async decoratition configuration method as follows:
+We could also use the async decoration configuration method as follows:
 
 ```csharp
 services
@@ -363,3 +372,4 @@ public class MyConsumer
     }
 }
 ```
+<!-- END:HIDE -->
