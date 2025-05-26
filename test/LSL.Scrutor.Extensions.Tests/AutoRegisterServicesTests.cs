@@ -25,7 +25,7 @@ public class AutoRegisterServicesTests
                     .AddClasses(t => t.AssignableTo<ExtraService>())
                     .AsSelfWithInterfaces()
                     .WithSingletonLifetime())
-            .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Scoped));
+            .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Singleton));
     }
 
     [Test]
