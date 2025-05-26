@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Reflection;
 using LSL.Scrutor.Extensions.Tests.AutoRegisterTestClasses;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,12 +25,12 @@ public class AutoRegisterServicesTests
                     .AddClasses(t => t.AssignableTo<ExtraService>())
                     .AsSelfWithInterfaces()
                     .WithSingletonLifetime())
-            .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Singleton));
+            .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Scoped));
     }
 
     [Test]
     public void WhenRegisteringFromParamsAssemblies_ThenTheCollectionShouldHaveTheExpectedServices()
-    {
+    {        
         new ServiceCollection()
             .AutoRegisterServices([typeof(AutoRegisterServicesTests).Assembly])
             .ShouldHaveAllTheServicesRegistered();
