@@ -1,1 +1,2 @@
-# From Assemblies
+# Auto registration from assemblies
+
