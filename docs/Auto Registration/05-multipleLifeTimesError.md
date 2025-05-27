@@ -6,3 +6,17 @@ The following example shows auto registration failing due to a class having mult
 new ServiceCollection()
     .AutoRegisterServicesFromAssemblyOf<Program>();
 ```
+
+The dependent interfaces and classes are defined as:
+
+```csharp { data-fiddle="B6t9qK" }
+public interface IMyClass
+{
+    void SayHello(string name);
+}
+
+public class MyClass : IMyClass, IScopedService, ISingletonService
+{
+    public void SayHello(string name) => Console.WriteLine($"Hello {name}");
+}
+```
