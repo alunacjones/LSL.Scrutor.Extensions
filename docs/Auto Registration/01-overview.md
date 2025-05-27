@@ -11,3 +11,7 @@ implement one of the following interfaces:
 
 !!! note
     All of these interfaces live in the `LSL.Scrutor.Extensions` namespace.
+
+!!! warning
+    If a concrete type has multiple lifetime interfaces then an `ArgumentException` will be thrown
+    with a message that tells you of the problematic class that needs fixing
