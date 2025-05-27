@@ -3,6 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using LSL.Scrutor.Extensions.Tests.AutoRegisterTestClasses;
 using Microsoft.Extensions.DependencyInjection;
+using MultipleLifeTimesAssembly;
 
 namespace LSL.Scrutor.Extensions.Tests;
 
@@ -27,6 +28,17 @@ public class AutoRegisterServicesTests
                     .AsSelfWithInterfaces()
                     .WithSingletonLifetime())
             .ShouldHaveAllTheServicesRegistered(4, s => s.ShouldHaveARegistrationOf<ExtraService, ExtraService>(ServiceLifetime.Singleton));
+    }
+
+    [Test]
+    public void WhenRegisteringAClassThatHasMultipleLifetimes_ThenItShouldThrowAnException()
+    {
+        new Action(() => new ServiceCollection()
+            .AutoRegisterServicesFromAssemblyOf<MultipleLifetimes>()
+        )
+        .Should()
+        .ThrowExactly<ArgumentException>()
+        .WithMessage("Type MultipleLifeTimesAssembly.MultipleLifetimes implements many lifetime interfaces. You may only use one of IScopedService, ITransientService or ISingletonService");
     }
 
     [Test]

@@ -27,5 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\LSL.Scrutor.Extensions\LSL.Scrutor.Extensions.csproj" />
+    <ProjectReference Include="..\MultipleLifeTimesAssembly\MultipleLifeTimesAssembly.csproj" />
   </ItemGroup>
 </Project>

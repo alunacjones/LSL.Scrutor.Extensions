@@ -35,14 +35,14 @@ public static class AutoRegistrationServiceCollectionExtensions
             var selector = scan.FromAssemblies(assembliesToScan.GuardAgainstNull(nameof(assembliesToScan)));
 
             selector
-                .AddClasses(classes => classes.AssignableTo<ITransientService>())
-                    .AsImplementedInterfaces()
+                .AddClasses(classes => classes.CheckForMultipleLifetimes<ITransientService>())
+                    .AsImplementedInterfaces(ExceptForLifetimeDecoratingInterface)
                     .WithTransientLifetime()
                 .AddClasses(classes => classes.AssignableTo<IScopedService>())
-                    .AsImplementedInterfaces()
+                    .AsImplementedInterfaces(ExceptForLifetimeDecoratingInterface)
                     .WithScopedLifetime()
                 .AddClasses(classes => classes.AssignableTo<ISingletonService>())
-                    .AsImplementedInterfaces()
+                    .AsImplementedInterfaces(ExceptForLifetimeDecoratingInterface)
                     .WithSingletonLifetime();
 
             extraRegistrationConfigurator?.Invoke(selector);
@@ -115,4 +115,7 @@ public static class AutoRegistrationServiceCollectionExtensions
         this IServiceCollection source,
         Action<IImplementationTypeSelector> extraRegistrationConfigurator = null) =>
         source.AutoRegisterServices([typeof(T).Assembly], extraRegistrationConfigurator);
+
+
+    private static bool ExceptForLifetimeDecoratingInterface(Type type) => type != typeof(ILifetimeDecoratedService);
 }
