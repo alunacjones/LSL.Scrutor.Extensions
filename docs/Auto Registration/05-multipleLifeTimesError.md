@@ -1,7 +1,6 @@
 # Auto registration with multiple lifetimes
 
-The following example shows auto registration of types
-from the assembly of the given type:
+The following example shows auto registration failing due to a class having multiple lifetimes:
 
 ```csharp { data-fiddle="B6t9qK" }
 new ServiceCollection()
