@@ -97,7 +97,8 @@ services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()
     .AddAbstractConsole()
-    .DecorateWithAsyncInterceptors<IMyAsyncService>(c => c.AddInterceptor<MyAsyncInterceptor>());
+    .DecorateWithAsyncInterceptors<IMyAsyncService>(
+        c => c.AddInterceptor<MyAsyncInterceptor>());
 ```
 
 Both methods of registration end up doing the same thing. The first one is just a convenience method for less code.
