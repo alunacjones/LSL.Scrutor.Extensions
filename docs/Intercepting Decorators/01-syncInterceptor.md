@@ -79,7 +79,7 @@ public class MyConsumer
 Using the classes in the previous example we can add a new interceptor to show 
 registration of multiple interceptors using a configuration delegate:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 // Extra interceptor
 public class MyOtherInterceptor : IInterceptor
 {
@@ -98,7 +98,7 @@ public class MyOtherInterceptor : IInterceptor
 
 The following code will then register both interceptors against our service:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 services
     .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()
