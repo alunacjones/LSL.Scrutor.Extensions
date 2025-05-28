@@ -2,13 +2,11 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Castle.DynamicProxy;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using LSL.AbstractConsole.ServiceProvider;
 using LSL.Scrutor.Extensions.Tests.HelperClasses;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace LSL.Scrutor.Extensions.Tests;
 

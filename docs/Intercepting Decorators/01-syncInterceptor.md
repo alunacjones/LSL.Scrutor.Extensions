@@ -9,7 +9,7 @@ Given definitions for the following in an assembly:
 > an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
 > package.
 
-```csharp
+```csharp { data-fiddle="5My3fJ" }
 public interface ISyncServiceToDecorate
 {
     void DoSomething();
@@ -41,7 +41,7 @@ public class MyInterceptor : IInterceptor
 
 Then we can easily register a decorator with the provided interceptor as follows:
 
-```csharp
+```csharp { data-fiddle="5My3fJ" }
 services
     .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()
