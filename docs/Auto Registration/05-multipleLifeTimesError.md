@@ -7,7 +7,7 @@ new ServiceCollection()
     .AutoRegisterServicesFromAssemblyOf<Program>();
 ```
 
-The dependent interfaces and classes are defined as:
+The dependent interfaces and classes are defined as follows:
 
 ```csharp { data-fiddle="B6t9qK" }
 public interface IMyClass

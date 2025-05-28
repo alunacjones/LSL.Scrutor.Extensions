@@ -59,7 +59,8 @@ public class MyConsumer
 {
     private readonly ISyncServiceToDecorate _syncServiceToDecorate;
 
-    public MyConsumer(ISyncServiceToDecorate syncServiceToDecorate) => _syncServiceToDecorate = syncServiceToDecorate;
+    public MyConsumer(ISyncServiceToDecorate syncServiceToDecorate) => 
+        _syncServiceToDecorate = syncServiceToDecorate;
 
     public void DoSomethingElse()
     {

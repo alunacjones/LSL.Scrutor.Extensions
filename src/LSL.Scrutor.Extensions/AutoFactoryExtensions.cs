@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Castle.DynamicProxy;
 using LSL.Scrutor.Extensions;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace Microsoft.Extensions.DependencyInjection;
@@ -27,7 +28,7 @@ public static class AutoFactoryExtensions
     public static IServiceCollection AddAutoFactory<TFactory>(
         this IServiceCollection services,
         Action<AutoFactoryConfiguration> configurator = null)
-        where TFactory : class => 
+        where TFactory : class =>
         AddAutoFactory(services, typeof(TFactory), configurator);
 
     /// <summary>
@@ -49,7 +50,7 @@ public static class AutoFactoryExtensions
         return services;
     }
 
-    private static object CreateFactory(IServiceProvider serviceProvider, Type factoryInterfaceType, AutoFactoryConfiguration autoFactoryConfiguration) => 
+    private static object CreateFactory(IServiceProvider serviceProvider, Type factoryInterfaceType, AutoFactoryConfiguration autoFactoryConfiguration) =>
         ProxyGeneratorContainer.ProxyGeneratorInstance.CreateInterfaceProxyWithoutTarget(
             factoryInterfaceType,
             new FactoryInterceptor(serviceProvider, autoFactoryConfiguration)
@@ -73,14 +74,22 @@ public static class AutoFactoryExtensions
             invocation.ReturnValue = factory(_serviceProvider, invocation.Arguments);
         }
 
-        private ObjectFactory CreateFactory(MethodInfo method) => 
+        private ObjectFactory CreateFactory(MethodInfo method) =>
             ActivatorUtilities.CreateFactory(
                 ResolveConcreteType(method.ReturnType),
                 [.. method.GetParameters().Select(p => p.ParameterType)]);
 
-        private Type ResolveConcreteType(Type returnType) => 
-            _autoFactoryConfiguration.TypeMappings.TryGetValue(returnType, out var mapping) 
-                ? mapping 
+        private Type ResolveConcreteType(Type returnType) =>
+            _autoFactoryConfiguration.TypeMappings.TryGetValue(returnType, out var mapping)
+                ? mapping
                 : returnType;
-    }    
+    }
+}
+
+public static class GeneralServiceCollectionExtensions
+{
+    public static IServiceCollection FluentTryAddSingleton<TServiceType, TImplementationType>(this IServiceCollection services, Type serviceType)
+    {
+        services.TryAdd()
+    }
 }
