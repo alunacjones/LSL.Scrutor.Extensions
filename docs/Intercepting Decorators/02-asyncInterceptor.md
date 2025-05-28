@@ -14,7 +14,7 @@ Given definitions for the following in an assembly:
 
 First we define an `IAsyncInterceptor`
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 public class MyAsyncInterceptor : IAsyncInterceptor
 {
     private readonly IConsole _console;
@@ -55,7 +55,7 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
 We then define a service (and it's interface) with an `async` method to intercept:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 public interface IMyAsyncService
 {
     Task RunAsync();
@@ -80,7 +80,7 @@ public class MyAsyncService : IMyAsyncService
 
 We can then register the asynchronous interceptor as follows:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()

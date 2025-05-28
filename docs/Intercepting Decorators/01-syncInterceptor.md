@@ -9,7 +9,7 @@ Given definitions for the following in an assembly:
 > an `IServiceCollection` via the [LSL.AbstractConsole.ServiceProvider](https://www.nuget.org/packages/LSL.AbstractConsole.ServiceProvider) 
 > package.
 
-```csharp
+```csharp { data-fiddle="5My3fJ" }
 public interface ISyncServiceToDecorate
 {
     void DoSomething();
@@ -41,7 +41,7 @@ public class MyInterceptor : IInterceptor
 
 Then we can easily register a decorator with the provided interceptor as follows:
 
-```csharp
+```csharp { data-fiddle="5My3fJ" }
 services
     .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()
@@ -79,7 +79,7 @@ public class MyConsumer
 Using the classes in the previous example we can add a new interceptor to show 
 registration of multiple interceptors using a configuration delegate:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 // Extra interceptor
 public class MyOtherInterceptor : IInterceptor
 {
@@ -98,7 +98,7 @@ public class MyOtherInterceptor : IInterceptor
 
 The following code will then register both interceptors against our service:
 
-```csharp
+```csharp { data-fiddle="dgTPxa" }
 services
     .AddInterceptorsFromAssemblyOf<MyInterceptor>()
     .AddAbstractConsole()

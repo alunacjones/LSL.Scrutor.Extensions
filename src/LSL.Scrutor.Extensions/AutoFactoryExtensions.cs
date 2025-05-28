@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using Castle.DynamicProxy;
 using LSL.Scrutor.Extensions;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace Microsoft.Extensions.DependencyInjection;
@@ -83,13 +82,5 @@ public static class AutoFactoryExtensions
             _autoFactoryConfiguration.TypeMappings.TryGetValue(returnType, out var mapping)
                 ? mapping
                 : returnType;
-    }
-}
-
-public static class GeneralServiceCollectionExtensions
-{
-    public static IServiceCollection FluentTryAddSingleton<TServiceType, TImplementationType>(this IServiceCollection services, Type serviceType)
-    {
-        services.TryAdd()
     }
 }
