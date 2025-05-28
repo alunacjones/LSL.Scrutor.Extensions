@@ -41,13 +41,15 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
     public void InterceptAsynchronous<TResult>(IInvocation invocation)
     {
-        // No need to implement as we only have one method with a Task return type
+        // No need to implement as we only have 
+        // one method with a Task return type
         throw new System.NotImplementedException();
     }
 
     public void InterceptSynchronous(IInvocation invocation)
     {
-        // No need to implement as we only have one method with a Task return type
+        // No need to implement as we only have 
+        // one method with a Task return type
         throw new System.NotImplementedException();
     }
 }
