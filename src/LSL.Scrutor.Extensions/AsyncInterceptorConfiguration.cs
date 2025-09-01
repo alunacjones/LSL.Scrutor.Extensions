@@ -43,7 +43,7 @@ public class AsyncInterceptorConfiguration
     public AsyncInterceptorConfiguration AddInterceptors(params Type[] types) => AddInterceptors(types.AsEnumerable());
 
     /// <summary>
-    /// Implicity converts <c><see cref="InterceptorConfiguration"/></c> to an array of <c><see cref="Type"/></c>
+    /// Implicitly converts <c><see cref="InterceptorConfiguration"/></c> to an array of <c><see cref="Type"/></c>
     /// </summary>
     /// <param name="interceptor"></param>
     public static implicit operator Type[](AsyncInterceptorConfiguration interceptor) => [.. interceptor._interceptorTypes];

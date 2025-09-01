@@ -36,7 +36,7 @@ public static class InterceptedDecoratorsExtensions
                     if (typeof(IInterceptor).IsAssignableFrom(interceptorType))
                     {
                         return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
-                            serviceTypeToDecorate,
+                            serviceTypeToDecorate.EnsureClosedGenericType(service),
                             service,
                             (IInterceptor)serviceProvider.GetRequiredService(interceptorType));
                     }
@@ -44,7 +44,7 @@ public static class InterceptedDecoratorsExtensions
                     if (typeof(IAsyncInterceptor).IsAssignableFrom(interceptorType))
                     {
                         return ProxyGeneratorInstance.CreateInterfaceProxyWithTarget(
-                            serviceTypeToDecorate,
+                            serviceTypeToDecorate.EnsureClosedGenericType(service),
                             service,
                             (IAsyncInterceptor)serviceProvider.GetRequiredService(interceptorType));
                     }

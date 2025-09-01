@@ -31,7 +31,7 @@ public class DecorateWithInterceptorTests
 
     [Test]
     public void DecorateWithInterceptor()
-    {        
+    {
         // Arrange
         var writer = new StringWriter();
 
@@ -47,7 +47,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         interceptedSut.DoSomething();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -67,7 +67,7 @@ public class DecorateWithInterceptorTests
 
     [Test]
     public void DecorateWithInterceptors()
-    {        
+    {
         // Arrange
         var writer = new StringWriter();
 
@@ -82,7 +82,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         interceptedSut.DoSomething();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -109,7 +109,7 @@ public class DecorateWithInterceptorTests
         var sp = new ServiceCollection()
             .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
             .Scan(c => c.FromAssemblyOf<DecorateWithInterceptorTests>()
-                .AddClasses()
+                .AddClasses(t => t.Where(t => t.IsAssignableTo(typeof(IRemove)) is false && t.IsNested is false))
                 .AsImplementedInterfaces()
                 .WithRegistrationStrategy(
                     (services, sd) => services.DecorateWithInterceptors(sd.ServiceType, typeof(MyInterceptor), typeof(MyOtherInterceptor))
@@ -122,7 +122,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         interceptedSut.DoSomething();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -142,7 +142,7 @@ public class DecorateWithInterceptorTests
 
     [Test]
     public void DecorateWithInterceptorsViaConfiguration()
-    {        
+    {
         // Arrange
         var writer = new StringWriter();
 
@@ -159,7 +159,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         interceptedSut.DoSomething();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -194,7 +194,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         await interceptedSut.RunAsync();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -227,7 +227,7 @@ public class DecorateWithInterceptorTests
 
         // Act
         await interceptedSut.RunAsync();
-        
+
         // Assert
         using var assertionScope = new AssertionScope();
 
@@ -254,5 +254,27 @@ public class DecorateWithInterceptorTests
             .BuildServiceProvider()
         )
         .Should().Throw<ArgumentException>();
-    }        
+    }
+
+    [Test]
+    public void DecorateWithOpenGenerics_ShouldWork()
+    {
+        // Arrange
+        var writer = new StringWriter();
+
+        var sp = new ServiceCollection()
+            .AddInterceptorsFromAssemblyOf<DecorateWithInterceptorTests>()
+            .AddScoped<IGeneric<int>, GenericInt>()
+            .AddAbstractConsole(c => c.TextWriter = writer)
+            .DecorateWithInterceptors(typeof(IGeneric<>), typeof(MyInterceptor))
+            .BuildServiceProvider();
+
+        // Act
+        var result = sp.GetRequiredService<IGeneric<int>>().MyTest();
+        
+        // Assert
+        using var assertionScope = new AssertionScope();
+
+        result.Should().Be(0);
+    }
 }

@@ -14,7 +14,7 @@ Given definitions for the following in an assembly:
 
 First we define an `IAsyncInterceptor`
 
-```csharp { data-fiddle="dgTPxa" }
+```csharp { data-fiddle="qxNwNf" }
 public class MyAsyncInterceptor : IAsyncInterceptor
 {
     private readonly IConsole _console;
@@ -41,13 +41,15 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
     public void InterceptAsynchronous<TResult>(IInvocation invocation)
     {
-        // No need to implement as we only have one method with a Task return type
+        // No need to implement as we only have 
+        // one method with a Task return type
         throw new System.NotImplementedException();
     }
 
     public void InterceptSynchronous(IInvocation invocation)
     {
-        // No need to implement as we only have one method with a Task return type
+        // No need to implement as we only have 
+        // one method with a Task return type
         throw new System.NotImplementedException();
     }
 }
@@ -55,7 +57,7 @@ public class MyAsyncInterceptor : IAsyncInterceptor
 
 We then define a service (and it's interface) with an `async` method to intercept:
 
-```csharp { data-fiddle="dgTPxa" }
+```csharp { data-fiddle="qxNwNf" }
 public interface IMyAsyncService
 {
     Task RunAsync();
@@ -80,7 +82,7 @@ public class MyAsyncService : IMyAsyncService
 
 We can then register the asynchronous interceptor as follows:
 
-```csharp { data-fiddle="dgTPxa" }
+```csharp { data-fiddle="qxNwNf" }
 services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()
@@ -95,7 +97,8 @@ services
     .AddInterceptorsFromAssemblyOf<MyAsyncService>()
     .AddScoped<IMyAsyncService, MyAsyncService>()
     .AddAbstractConsole()
-    .DecorateWithAsyncInterceptors<IMyAsyncService>(c => c.AddInterceptor<MyAsyncInterceptor>());
+    .DecorateWithAsyncInterceptors<IMyAsyncService>(
+        c => c.AddInterceptor<MyAsyncInterceptor>());
 ```
 
 Both methods of registration end up doing the same thing. The first one is just a convenience method for less code.
