@@ -5,3 +5,6 @@ Scrutor provides great `Decorator` functionality but sometimes a more [Aspect Or
 [Castle.Core](https://www.nuget.org/packages/castle.core/) provides great interception capabilities that this method utilises.
 
 This section provides documentation for using the various methods of registering decorating interceptors.
+
+!!! note
+    Open generics can be used via the `DecorateWithInterceptors` extension method for an `IServiceCollection`
